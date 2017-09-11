@@ -1,0 +1,1519 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Pta.Build.WebEssentialsBundleTask.1.0.2\build\Pta.Build.WebEssentialsBundleTask.props" Condition="Exists('..\packages\Pta.Build.WebEssentialsBundleTask.1.0.2\build\Pta.Build.WebEssentialsBundleTask.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2DD70AA2-31DE-4381-AA27-9BDB5086BF14}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>poc_app</RootNamespace>
+    <AssemblyName>poc-app</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.0.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.0.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.0.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.0.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.0.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.0.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="content\businessunit\businessunitDelete.html" />
+    <Content Include="content\businessunit\businessunitDelete.js" />
+    <Content Include="content\businessunit\businessunitSave.js" />
+    <Content Include="content\businessunit\businessunitSave.html" />
+    <Content Include="content\employee\employeeSave.js" />
+    <Content Include="content\employee\employeeSave.html" />
+    <Content Include="packages.config" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <EntityDeploy Include="Data\pocapp.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>pocapp.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Data\pocapp.edmx.diagram">
+      <DependentUpon>pocapp.edmx</DependentUpon>
+    </Content>
+    <Content Include="package.json" />
+    <Content Include="jspm_packages\.dependencies.json" />
+    <Content Include="jspm_packages\.loaderversions" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-assert%400.1.0\.jspm-hash" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-assert%400.1.0\package.json" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-buffer%400.1.1\.jspm-hash" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-buffer%400.1.1\package.json" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-constants%400.1.0\.jspm-hash" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-constants%400.1.0\package.json" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-crypto%400.1.0\.jspm-hash" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-crypto%400.1.0\package.json" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-events%400.1.1\.jspm-hash" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-events%400.1.1\package.json" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-fs%400.1.2\.jspm-hash" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-fs%400.1.2\package.json" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-http%401.7.1\.jspm-hash" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-http%401.7.1\LICENSE" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-http%401.7.1\package.json" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-http%401.7.1\readme.markdown" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-module%400.1.0\.jspm-hash" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-net%400.1.2\.jspm-hash" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-net%400.1.2\LICENSE" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-net%400.1.2\package.json" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-net%400.1.2\README.md" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-os%400.1.0\.jspm-hash" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-os%400.1.0\package.json" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-path%400.1.0\.jspm-hash" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-path%400.1.0\package.json" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-process%400.1.2\.jspm-hash" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-process%400.1.2\package.json" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-stream%400.1.0\.jspm-hash" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-stream%400.1.0\package.json" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-string_decoder%400.1.0\.jspm-hash" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-string_decoder%400.1.0\package.json" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-timers%400.1.0\.jspm-hash" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-timers%400.1.0\package.json" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-url%400.1.0\.jspm-hash" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-url%400.1.0\package.json" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-util%400.1.0\.jspm-hash" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-util%400.1.0\package.json" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-vm%400.1.0\.jspm-hash" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-vm%400.1.0\package.json" />
+    <Content Include="jspm_packages\github\systemjs\plugin-css%400.1.35\.jspm-hash" />
+    <Content Include="jspm_packages\github\systemjs\plugin-css%400.1.35\build-post-css\package.json" />
+    <Content Include="jspm_packages\github\systemjs\plugin-css%400.1.35\LICENSE" />
+    <Content Include="jspm_packages\github\systemjs\plugin-css%400.1.35\package.json" />
+    <Content Include="jspm_packages\github\systemjs\plugin-css%400.1.35\README.md" />
+    <Content Include="jspm_packages\github\systemjs\plugin-css%400.1.35\test\mocha.opts" />
+    <Content Include="jspm_packages\github\systemjs\plugin-json%400.1.2\.jspm-hash" />
+    <Content Include="jspm_packages\github\systemjs\plugin-json%400.1.2\json.json" />
+    <Content Include="jspm_packages\github\systemjs\plugin-json%400.1.2\LICENSE" />
+    <Content Include="jspm_packages\github\systemjs\plugin-json%400.1.2\package.json" />
+    <Content Include="jspm_packages\github\systemjs\plugin-json%400.1.2\README.md" />
+    <Content Include="jspm_packages\github\twbs\bootstrap%403.3.7\.jspm-hash" />
+    <Content Include="jspm_packages\github\twbs\bootstrap%403.3.7\css\bootstrap-theme.css.map" />
+    <Content Include="jspm_packages\github\twbs\bootstrap%403.3.7\css\bootstrap-theme.min.css.map" />
+    <Content Include="jspm_packages\github\twbs\bootstrap%403.3.7\css\bootstrap.css.map" />
+    <Content Include="jspm_packages\github\twbs\bootstrap%403.3.7\css\bootstrap.min.css.map" />
+    <Content Include="jspm_packages\github\twbs\bootstrap%403.3.7\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="jspm_packages\github\twbs\bootstrap%403.3.7\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="jspm_packages\github\twbs\bootstrap%403.3.7\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="jspm_packages\github\twbs\bootstrap%403.3.7\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="jspm_packages\npm\asn1.js%404.9.1\.jspm-hash" />
+    <Content Include="jspm_packages\npm\asn1.js%404.9.1\.jspm.errors" />
+    <Content Include="jspm_packages\npm\asn1.js%404.9.1\.npmignore" />
+    <Content Include="jspm_packages\npm\asn1.js%404.9.1\package.json" />
+    <Content Include="jspm_packages\npm\asn1.js%404.9.1\README.md" />
+    <Content Include="jspm_packages\npm\assert%401.4.1\.jspm-hash" />
+    <Content Include="jspm_packages\npm\assert%401.4.1\.npmignore" />
+    <Content Include="jspm_packages\npm\assert%401.4.1\.travis.yml" />
+    <Content Include="jspm_packages\npm\assert%401.4.1\.zuul.yml" />
+    <Content Include="jspm_packages\npm\assert%401.4.1\LICENSE" />
+    <Content Include="jspm_packages\npm\assert%401.4.1\package.json" />
+    <Content Include="jspm_packages\npm\assert%401.4.1\README.md" />
+    <Content Include="jspm_packages\npm\aurelia-binding%401.2.2\.jspm-hash" />
+    <Content Include="jspm_packages\npm\aurelia-bootstrapper%402.1.1\.jspm-hash" />
+    <Content Include="jspm_packages\npm\aurelia-dependency-injection%401.3.2\.jspm-hash" />
+    <Content Include="jspm_packages\npm\aurelia-event-aggregator%401.0.1\.jspm-hash" />
+    <Content Include="jspm_packages\npm\aurelia-framework%401.1.4\.jspm-hash" />
+    <Content Include="jspm_packages\npm\aurelia-history%401.0.0\.jspm-hash" />
+    <Content Include="jspm_packages\npm\aurelia-history-browser%401.0.0\.jspm-hash" />
+    <Content Include="jspm_packages\npm\aurelia-http-client%401.1.1\.jspm-hash" />
+    <Content Include="jspm_packages\npm\aurelia-loader%401.0.0\.jspm-hash" />
+    <Content Include="jspm_packages\npm\aurelia-loader-default%401.0.2\.jspm-hash" />
+    <Content Include="jspm_packages\npm\aurelia-logging%401.3.1\.jspm-hash" />
+    <Content Include="jspm_packages\npm\aurelia-logging-console%401.0.0\.jspm-hash" />
+    <Content Include="jspm_packages\npm\aurelia-metadata%401.0.3\.jspm-hash" />
+    <Content Include="jspm_packages\npm\aurelia-pal%401.4.0\.jspm-hash" />
+    <Content Include="jspm_packages\npm\aurelia-pal-browser%401.3.0\.jspm-hash" />
+    <Content Include="jspm_packages\npm\aurelia-path%401.1.1\.jspm-hash" />
+    <Content Include="jspm_packages\npm\aurelia-polyfills%401.2.2\.jspm-hash" />
+    <Content Include="jspm_packages\npm\aurelia-route-recognizer%401.1.0\.jspm-hash" />
+    <Content Include="jspm_packages\npm\aurelia-router%401.3.0\.jspm-hash" />
+    <Content Include="jspm_packages\npm\aurelia-task-queue%401.2.0\.jspm-hash" />
+    <Content Include="jspm_packages\npm\aurelia-templating%401.4.2\.jspm-hash" />
+    <Content Include="jspm_packages\npm\aurelia-templating-binding%401.3.0\.jspm-hash" />
+    <Content Include="jspm_packages\npm\aurelia-templating-resources%401.4.0\.jspm-hash" />
+    <Content Include="jspm_packages\npm\aurelia-templating-router%401.1.0\.jspm-hash" />
+    <Content Include="jspm_packages\npm\aurelia-validation%401.1.1\.jspm-hash" />
+    <Content Include="jspm_packages\npm\Base64%400.2.1\.jspm-hash" />
+    <Content Include="jspm_packages\npm\Base64%400.2.1\.npmignore" />
+    <Content Include="jspm_packages\npm\Base64%400.2.1\.travis.yml" />
+    <Content Include="jspm_packages\npm\Base64%400.2.1\LICENSE" />
+    <Content Include="jspm_packages\npm\Base64%400.2.1\Makefile" />
+    <Content Include="jspm_packages\npm\Base64%400.2.1\package.json" />
+    <Content Include="jspm_packages\npm\Base64%400.2.1\README.md" />
+    <Content Include="jspm_packages\npm\Base64%400.2.1\test\base64.coffee" />
+    <Content Include="jspm_packages\npm\base64-js%401.2.1\.jspm-hash" />
+    <Content Include="jspm_packages\npm\base64-js%401.2.1\package.json" />
+    <Content Include="jspm_packages\npm\bn.js%404.11.8\.jspm-hash" />
+    <Content Include="jspm_packages\npm\bn.js%404.11.8\.npmignore" />
+    <Content Include="jspm_packages\npm\bn.js%404.11.8\package.json" />
+    <Content Include="jspm_packages\npm\bn.js%404.11.8\README.md" />
+    <Content Include="jspm_packages\npm\brorand%401.1.0\.jspm-hash" />
+    <Content Include="jspm_packages\npm\brorand%401.1.0\.npmignore" />
+    <Content Include="jspm_packages\npm\brorand%401.1.0\package.json" />
+    <Content Include="jspm_packages\npm\brorand%401.1.0\README.md" />
+    <Content Include="jspm_packages\npm\browserify-aes%401.0.8\.jspm-hash" />
+    <Content Include="jspm_packages\npm\browserify-aes%401.0.8\.npmignore" />
+    <Content Include="jspm_packages\npm\browserify-aes%401.0.8\.travis.yml" />
+    <Content Include="jspm_packages\npm\browserify-aes%401.0.8\LICENSE" />
+    <Content Include="jspm_packages\npm\browserify-aes%401.0.8\modes\list.json" />
+    <Content Include="jspm_packages\npm\browserify-aes%401.0.8\package.json" />
+    <Content Include="jspm_packages\npm\browserify-aes%401.0.8\README.md" />
+    <Content Include="jspm_packages\npm\browserify-cipher%401.0.0\.jspm-hash" />
+    <Content Include="jspm_packages\npm\browserify-cipher%401.0.0\.travis.yml" />
+    <Content Include="jspm_packages\npm\browserify-cipher%401.0.0\package.json" />
+    <Content Include="jspm_packages\npm\browserify-cipher%401.0.0\readme.md" />
+    <Content Include="jspm_packages\npm\browserify-des%401.0.0\.jspm-hash" />
+    <Content Include="jspm_packages\npm\browserify-des%401.0.0\package.json" />
+    <Content Include="jspm_packages\npm\browserify-des%401.0.0\readme.md" />
+    <Content Include="jspm_packages\npm\browserify-rsa%404.0.1\.jspm-hash" />
+    <Content Include="jspm_packages\npm\browserify-rsa%404.0.1\.travis.yml" />
+    <Content Include="jspm_packages\npm\browserify-rsa%404.0.1\LICENSE" />
+    <Content Include="jspm_packages\npm\browserify-rsa%404.0.1\package.json" />
+    <Content Include="jspm_packages\npm\browserify-rsa%404.0.1\readme.md" />
+    <Content Include="jspm_packages\npm\browserify-sign%404.0.4\.jspm-hash" />
+    <Content Include="jspm_packages\npm\browserify-sign%404.0.4\browser\algorithms.json" />
+    <Content Include="jspm_packages\npm\browserify-sign%404.0.4\browser\curves.json" />
+    <Content Include="jspm_packages\npm\browserify-sign%404.0.4\package.json" />
+    <Content Include="jspm_packages\npm\buffer%405.0.7\.jspm-hash" />
+    <Content Include="jspm_packages\npm\buffer%405.0.7\.npmignore" />
+    <Content Include="jspm_packages\npm\buffer%405.0.7\.travis.yml" />
+    <Content Include="jspm_packages\npm\buffer%405.0.7\AUTHORS.md" />
+    <Content Include="jspm_packages\npm\buffer%405.0.7\LICENSE" />
+    <Content Include="jspm_packages\npm\buffer%405.0.7\package.json" />
+    <Content Include="jspm_packages\npm\buffer%405.0.7\README.md" />
+    <Content Include="jspm_packages\npm\buffer-xor%401.0.3\.jspm-hash" />
+    <Content Include="jspm_packages\npm\buffer-xor%401.0.3\.npmignore" />
+    <Content Include="jspm_packages\npm\buffer-xor%401.0.3\.travis.yml" />
+    <Content Include="jspm_packages\npm\buffer-xor%401.0.3\LICENSE" />
+    <Content Include="jspm_packages\npm\buffer-xor%401.0.3\package.json" />
+    <Content Include="jspm_packages\npm\buffer-xor%401.0.3\README.md" />
+    <Content Include="jspm_packages\npm\buffer-xor%401.0.3\test\fixtures.json" />
+    <Content Include="jspm_packages\npm\cipher-base%401.0.4\.eslintrc" />
+    <Content Include="jspm_packages\npm\cipher-base%401.0.4\.jspm-hash" />
+    <Content Include="jspm_packages\npm\cipher-base%401.0.4\.npmignore" />
+    <Content Include="jspm_packages\npm\cipher-base%401.0.4\.travis.yml" />
+    <Content Include="jspm_packages\npm\cipher-base%401.0.4\LICENSE" />
+    <Content Include="jspm_packages\npm\cipher-base%401.0.4\package.json" />
+    <Content Include="jspm_packages\npm\cipher-base%401.0.4\README.md" />
+    <Content Include="jspm_packages\npm\constants-browserify%400.0.1\.jspm-hash" />
+    <Content Include="jspm_packages\npm\constants-browserify%400.0.1\build.sh" />
+    <Content Include="jspm_packages\npm\constants-browserify%400.0.1\constants.json" />
+    <Content Include="jspm_packages\npm\constants-browserify%400.0.1\package.json" />
+    <Content Include="jspm_packages\npm\constants-browserify%400.0.1\README.md" />
+    <Content Include="jspm_packages\npm\core-util-is%401.0.2\.jspm-hash" />
+    <Content Include="jspm_packages\npm\core-util-is%401.0.2\float.patch" />
+    <Content Include="jspm_packages\npm\core-util-is%401.0.2\LICENSE" />
+    <Content Include="jspm_packages\npm\core-util-is%401.0.2\package.json" />
+    <Content Include="jspm_packages\npm\core-util-is%401.0.2\README.md" />
+    <Content Include="jspm_packages\npm\create-ecdh%404.0.0\.jspm-hash" />
+    <Content Include="jspm_packages\npm\create-ecdh%404.0.0\.npmignore" />
+    <Content Include="jspm_packages\npm\create-ecdh%404.0.0\.travis.yml" />
+    <Content Include="jspm_packages\npm\create-ecdh%404.0.0\package.json" />
+    <Content Include="jspm_packages\npm\create-ecdh%404.0.0\readme.md" />
+    <Content Include="jspm_packages\npm\create-hash%401.1.3\.jspm-hash" />
+    <Content Include="jspm_packages\npm\create-hash%401.1.3\.npmignore" />
+    <Content Include="jspm_packages\npm\create-hash%401.1.3\.travis.yml" />
+    <Content Include="jspm_packages\npm\create-hash%401.1.3\package.json" />
+    <Content Include="jspm_packages\npm\create-hash%401.1.3\readme.md" />
+    <Content Include="jspm_packages\npm\create-hmac%401.1.6\.jspm-hash" />
+    <Content Include="jspm_packages\npm\create-hmac%401.1.6\package.json" />
+    <Content Include="jspm_packages\npm\crypto-browserify%403.11.1\.jspm-hash" />
+    <Content Include="jspm_packages\npm\crypto-browserify%403.11.1\.npmignore" />
+    <Content Include="jspm_packages\npm\crypto-browserify%403.11.1\.travis.yml" />
+    <Content Include="jspm_packages\npm\crypto-browserify%403.11.1\.zuul.yml" />
+    <Content Include="jspm_packages\npm\crypto-browserify%403.11.1\LICENSE" />
+    <Content Include="jspm_packages\npm\crypto-browserify%403.11.1\package.json" />
+    <Content Include="jspm_packages\npm\crypto-browserify%403.11.1\README.md" />
+    <Content Include="jspm_packages\npm\des.js%401.0.0\.jscsrc" />
+    <Content Include="jspm_packages\npm\des.js%401.0.0\.jshintrc" />
+    <Content Include="jspm_packages\npm\des.js%401.0.0\.jspm-hash" />
+    <Content Include="jspm_packages\npm\des.js%401.0.0\.npmignore" />
+    <Content Include="jspm_packages\npm\des.js%401.0.0\package.json" />
+    <Content Include="jspm_packages\npm\des.js%401.0.0\README.md" />
+    <Content Include="jspm_packages\npm\diffie-hellman%405.0.2\.jspm-hash" />
+    <Content Include="jspm_packages\npm\diffie-hellman%405.0.2\.npmignore" />
+    <Content Include="jspm_packages\npm\diffie-hellman%405.0.2\.travis.yml" />
+    <Content Include="jspm_packages\npm\diffie-hellman%405.0.2\lib\primes.json" />
+    <Content Include="jspm_packages\npm\diffie-hellman%405.0.2\package.json" />
+    <Content Include="jspm_packages\npm\diffie-hellman%405.0.2\readme.md" />
+    <Content Include="jspm_packages\npm\elliptic%406.4.0\.jspm-hash" />
+    <Content Include="jspm_packages\npm\elliptic%406.4.0\package.json" />
+    <Content Include="jspm_packages\npm\events%401.0.2\.jspm-hash" />
+    <Content Include="jspm_packages\npm\events%401.0.2\.npmignore" />
+    <Content Include="jspm_packages\npm\events%401.0.2\.travis.yml" />
+    <Content Include="jspm_packages\npm\events%401.0.2\.zuul.yml" />
+    <Content Include="jspm_packages\npm\events%401.0.2\History.md" />
+    <Content Include="jspm_packages\npm\events%401.0.2\LICENSE" />
+    <Content Include="jspm_packages\npm\events%401.0.2\package.json" />
+    <Content Include="jspm_packages\npm\events%401.0.2\Readme.md" />
+    <Content Include="jspm_packages\npm\evp_bytestokey%401.0.3\.jspm-hash" />
+    <Content Include="jspm_packages\npm\evp_bytestokey%401.0.3\package.json" />
+    <Content Include="jspm_packages\npm\font-awesome%404.7.0\.jspm-hash" />
+    <Content Include="jspm_packages\npm\font-awesome%404.7.0\.npmignore" />
+    <Content Include="jspm_packages\npm\font-awesome%404.7.0\css\font-awesome.css.map" />
+    <Content Include="jspm_packages\npm\font-awesome%404.7.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="jspm_packages\npm\font-awesome%404.7.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="jspm_packages\npm\font-awesome%404.7.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="jspm_packages\npm\font-awesome%404.7.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="jspm_packages\npm\font-awesome%404.7.0\fonts\FontAwesome.otf" />
+    <Content Include="jspm_packages\npm\font-awesome%404.7.0\less\animated.less" />
+    <Content Include="jspm_packages\npm\font-awesome%404.7.0\less\bordered-pulled.less" />
+    <Content Include="jspm_packages\npm\font-awesome%404.7.0\less\core.less" />
+    <Content Include="jspm_packages\npm\font-awesome%404.7.0\less\fixed-width.less" />
+    <Content Include="jspm_packages\npm\font-awesome%404.7.0\less\font-awesome.less" />
+    <Content Include="jspm_packages\npm\font-awesome%404.7.0\less\icons.less" />
+    <Content Include="jspm_packages\npm\font-awesome%404.7.0\less\larger.less" />
+    <Content Include="jspm_packages\npm\font-awesome%404.7.0\less\list.less" />
+    <Content Include="jspm_packages\npm\font-awesome%404.7.0\less\mixins.less" />
+    <Content Include="jspm_packages\npm\font-awesome%404.7.0\less\path.less" />
+    <Content Include="jspm_packages\npm\font-awesome%404.7.0\less\rotated-flipped.less" />
+    <Content Include="jspm_packages\npm\font-awesome%404.7.0\less\screen-reader.less" />
+    <Content Include="jspm_packages\npm\font-awesome%404.7.0\less\stacked.less" />
+    <Content Include="jspm_packages\npm\font-awesome%404.7.0\less\variables.less" />
+    <Content Include="jspm_packages\npm\font-awesome%404.7.0\package.json" />
+    <Content Include="jspm_packages\npm\font-awesome%404.7.0\README.md" />
+    <Content Include="jspm_packages\npm\font-awesome%404.7.0\scss\font-awesome.scss" />
+    <Content Include="jspm_packages\npm\font-awesome%404.7.0\scss\_animated.scss" />
+    <Content Include="jspm_packages\npm\font-awesome%404.7.0\scss\_bordered-pulled.scss" />
+    <Content Include="jspm_packages\npm\font-awesome%404.7.0\scss\_core.scss" />
+    <Content Include="jspm_packages\npm\font-awesome%404.7.0\scss\_fixed-width.scss" />
+    <Content Include="jspm_packages\npm\font-awesome%404.7.0\scss\_icons.scss" />
+    <Content Include="jspm_packages\npm\font-awesome%404.7.0\scss\_larger.scss" />
+    <Content Include="jspm_packages\npm\font-awesome%404.7.0\scss\_list.scss" />
+    <Content Include="jspm_packages\npm\font-awesome%404.7.0\scss\_mixins.scss" />
+    <Content Include="jspm_packages\npm\font-awesome%404.7.0\scss\_path.scss" />
+    <Content Include="jspm_packages\npm\font-awesome%404.7.0\scss\_rotated-flipped.scss" />
+    <Content Include="jspm_packages\npm\font-awesome%404.7.0\scss\_screen-reader.scss" />
+    <Content Include="jspm_packages\npm\font-awesome%404.7.0\scss\_stacked.scss" />
+    <Content Include="jspm_packages\npm\font-awesome%404.7.0\scss\_variables.scss" />
+    <Content Include="jspm_packages\npm\hash-base%402.0.2\.jspm-hash" />
+    <Content Include="jspm_packages\npm\hash-base%402.0.2\package.json" />
+    <Content Include="jspm_packages\npm\hash-base%403.0.4\.jspm-hash" />
+    <Content Include="jspm_packages\npm\hash-base%403.0.4\package.json" />
+    <Content Include="jspm_packages\npm\hash.js%401.1.3\.jspm-hash" />
+    <Content Include="jspm_packages\npm\hash.js%401.1.3\.npmignore" />
+    <Content Include="jspm_packages\npm\hash.js%401.1.3\.travis.yml" />
+    <Content Include="jspm_packages\npm\hash.js%401.1.3\package.json" />
+    <Content Include="jspm_packages\npm\hash.js%401.1.3\README.md" />
+    <Content Include="jspm_packages\npm\hmac-drbg%401.0.1\.jspm-hash" />
+    <Content Include="jspm_packages\npm\hmac-drbg%401.0.1\.npmignore" />
+    <Content Include="jspm_packages\npm\hmac-drbg%401.0.1\.travis.yml" />
+    <Content Include="jspm_packages\npm\hmac-drbg%401.0.1\package.json" />
+    <Content Include="jspm_packages\npm\hmac-drbg%401.0.1\README.md" />
+    <Content Include="jspm_packages\npm\hmac-drbg%401.0.1\test\fixtures\hmac-drbg-nist.json" />
+    <Content Include="jspm_packages\npm\ieee754%401.1.8\.jspm-hash" />
+    <Content Include="jspm_packages\npm\ieee754%401.1.8\.travis.yml" />
+    <Content Include="jspm_packages\npm\ieee754%401.1.8\.zuul.yml" />
+    <Content Include="jspm_packages\npm\ieee754%401.1.8\LICENSE" />
+    <Content Include="jspm_packages\npm\ieee754%401.1.8\package.json" />
+    <Content Include="jspm_packages\npm\ieee754%401.1.8\README.md" />
+    <Content Include="jspm_packages\npm\indexof%400.0.1\.jspm-hash" />
+    <Content Include="jspm_packages\npm\indexof%400.0.1\.npmignore" />
+    <Content Include="jspm_packages\npm\indexof%400.0.1\component.json" />
+    <Content Include="jspm_packages\npm\indexof%400.0.1\Makefile" />
+    <Content Include="jspm_packages\npm\indexof%400.0.1\package.json" />
+    <Content Include="jspm_packages\npm\indexof%400.0.1\Readme.md" />
+    <Content Include="jspm_packages\npm\inherits%402.0.1\.jspm-hash" />
+    <Content Include="jspm_packages\npm\inherits%402.0.1\LICENSE" />
+    <Content Include="jspm_packages\npm\inherits%402.0.1\package.json" />
+    <Content Include="jspm_packages\npm\inherits%402.0.1\README.md" />
+    <Content Include="jspm_packages\npm\inherits%402.0.3\.jspm-hash" />
+    <Content Include="jspm_packages\npm\inherits%402.0.3\package.json" />
+    <Content Include="jspm_packages\npm\isarray%400.0.1\.jspm-hash" />
+    <Content Include="jspm_packages\npm\isarray%400.0.1\component.json" />
+    <Content Include="jspm_packages\npm\isarray%400.0.1\package.json" />
+    <Content Include="jspm_packages\npm\isarray%400.0.1\README.md" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\.jspm-hash" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\bower.json" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\dist\jquery.min.map" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\dist\jquery.slim.min.map" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\external\sizzle\dist\sizzle.min.map" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\package.json" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\README.md" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\.eslintrc.json" />
+    <Content Include="jspm_packages\npm\md5.js%401.3.4\.jspm-hash" />
+    <Content Include="jspm_packages\npm\md5.js%401.3.4\package.json" />
+    <Content Include="jspm_packages\npm\miller-rabin%404.0.0\.jspm-hash" />
+    <Content Include="jspm_packages\npm\miller-rabin%404.0.0\.npmignore" />
+    <Content Include="jspm_packages\npm\miller-rabin%404.0.0\bin\miller-rabin" />
+    <Content Include="jspm_packages\npm\miller-rabin%404.0.0\package.json" />
+    <Content Include="jspm_packages\npm\miller-rabin%404.0.0\README.md" />
+    <Content Include="jspm_packages\npm\minimalistic-assert%401.0.0\.jspm-hash" />
+    <Content Include="jspm_packages\npm\minimalistic-assert%401.0.0\package.json" />
+    <Content Include="jspm_packages\npm\minimalistic-assert%401.0.0\readme.md" />
+    <Content Include="jspm_packages\npm\minimalistic-crypto-utils%401.0.1\.jspm-hash" />
+    <Content Include="jspm_packages\npm\minimalistic-crypto-utils%401.0.1\.npmignore" />
+    <Content Include="jspm_packages\npm\minimalistic-crypto-utils%401.0.1\.travis.yml" />
+    <Content Include="jspm_packages\npm\minimalistic-crypto-utils%401.0.1\package.json" />
+    <Content Include="jspm_packages\npm\minimalistic-crypto-utils%401.0.1\README.md" />
+    <Content Include="jspm_packages\npm\os-browserify%400.1.2\.jspm-hash" />
+    <Content Include="jspm_packages\npm\os-browserify%400.1.2\.npmignore" />
+    <Content Include="jspm_packages\npm\os-browserify%400.1.2\LICENSE" />
+    <Content Include="jspm_packages\npm\os-browserify%400.1.2\package.json" />
+    <Content Include="jspm_packages\npm\os-browserify%400.1.2\README.md" />
+    <Content Include="jspm_packages\npm\parse-asn1%405.1.0\.jspm-hash" />
+    <Content Include="jspm_packages\npm\parse-asn1%405.1.0\.npmignore" />
+    <Content Include="jspm_packages\npm\parse-asn1%405.1.0\.travis.yml" />
+    <Content Include="jspm_packages\npm\parse-asn1%405.1.0\aesid.json" />
+    <Content Include="jspm_packages\npm\parse-asn1%405.1.0\package.json" />
+    <Content Include="jspm_packages\npm\parse-asn1%405.1.0\README.md" />
+    <Content Include="jspm_packages\npm\parse-asn1%405.1.0\test\1024.priv" />
+    <Content Include="jspm_packages\npm\parse-asn1%405.1.0\test\1024.pub" />
+    <Content Include="jspm_packages\npm\parse-asn1%405.1.0\test\dsa.1024.priv" />
+    <Content Include="jspm_packages\npm\parse-asn1%405.1.0\test\dsa.1024.pub" />
+    <Content Include="jspm_packages\npm\parse-asn1%405.1.0\test\dsa.2048.priv" />
+    <Content Include="jspm_packages\npm\parse-asn1%405.1.0\test\dsa.2048.pub" />
+    <Content Include="jspm_packages\npm\parse-asn1%405.1.0\test\ec.pass.priv" />
+    <Content Include="jspm_packages\npm\parse-asn1%405.1.0\test\ec.priv" />
+    <Content Include="jspm_packages\npm\parse-asn1%405.1.0\test\ec.pub" />
+    <Content Include="jspm_packages\npm\parse-asn1%405.1.0\test\node.cert" />
+    <Content Include="jspm_packages\npm\parse-asn1%405.1.0\test\pass.1024.priv" />
+    <Content Include="jspm_packages\npm\parse-asn1%405.1.0\test\pass.1024.pub" />
+    <Content Include="jspm_packages\npm\parse-asn1%405.1.0\test\pass.dsa.1024.priv" />
+    <Content Include="jspm_packages\npm\parse-asn1%405.1.0\test\pass.dsa.1024.pub" />
+    <Content Include="jspm_packages\npm\parse-asn1%405.1.0\test\pass.rsa.1024.priv" />
+    <Content Include="jspm_packages\npm\parse-asn1%405.1.0\test\pass.rsa.1024.pub" />
+    <Content Include="jspm_packages\npm\parse-asn1%405.1.0\test\pass.rsa.2028.priv" />
+    <Content Include="jspm_packages\npm\parse-asn1%405.1.0\test\pass.rsa.2028.pub" />
+    <Content Include="jspm_packages\npm\parse-asn1%405.1.0\test\pass2.dsa.1024.priv" />
+    <Content Include="jspm_packages\npm\parse-asn1%405.1.0\test\pass2.dsa.1024.pub" />
+    <Content Include="jspm_packages\npm\parse-asn1%405.1.0\test\rsa.1024.priv" />
+    <Content Include="jspm_packages\npm\parse-asn1%405.1.0\test\rsa.1024.pub" />
+    <Content Include="jspm_packages\npm\parse-asn1%405.1.0\test\rsa.2028.priv" />
+    <Content Include="jspm_packages\npm\parse-asn1%405.1.0\test\rsa.2028.pub" />
+    <Content Include="jspm_packages\npm\parse-asn1%405.1.0\test\vector.priv" />
+    <Content Include="jspm_packages\npm\parse-asn1%405.1.0\test\vector2.priv" />
+    <Content Include="jspm_packages\npm\path-browserify%400.0.0\.jspm-hash" />
+    <Content Include="jspm_packages\npm\path-browserify%400.0.0\LICENSE" />
+    <Content Include="jspm_packages\npm\path-browserify%400.0.0\package.json" />
+    <Content Include="jspm_packages\npm\path-browserify%400.0.0\readme.markdown" />
+    <Content Include="jspm_packages\npm\pbkdf2%403.0.13\.jspm-hash" />
+    <Content Include="jspm_packages\npm\pbkdf2%403.0.13\package.json" />
+    <Content Include="jspm_packages\npm\process%400.11.10\.eslintrc" />
+    <Content Include="jspm_packages\npm\process%400.11.10\.jspm-hash" />
+    <Content Include="jspm_packages\npm\process%400.11.10\LICENSE" />
+    <Content Include="jspm_packages\npm\process%400.11.10\package.json" />
+    <Content Include="jspm_packages\npm\process%400.11.10\README.md" />
+    <Content Include="jspm_packages\npm\public-encrypt%404.0.0\.jspm-hash" />
+    <Content Include="jspm_packages\npm\public-encrypt%404.0.0\.travis.yml" />
+    <Content Include="jspm_packages\npm\public-encrypt%404.0.0\package.json" />
+    <Content Include="jspm_packages\npm\public-encrypt%404.0.0\readme.md" />
+    <Content Include="jspm_packages\npm\public-encrypt%404.0.0\test\1024.priv" />
+    <Content Include="jspm_packages\npm\public-encrypt%404.0.0\test\1024.pub" />
+    <Content Include="jspm_packages\npm\public-encrypt%404.0.0\test\ec.pass.priv" />
+    <Content Include="jspm_packages\npm\public-encrypt%404.0.0\test\ec.priv" />
+    <Content Include="jspm_packages\npm\public-encrypt%404.0.0\test\ec.pub" />
+    <Content Include="jspm_packages\npm\public-encrypt%404.0.0\test\pass.1024.priv" />
+    <Content Include="jspm_packages\npm\public-encrypt%404.0.0\test\pass.1024.pub" />
+    <Content Include="jspm_packages\npm\public-encrypt%404.0.0\test\rsa.1024.priv" />
+    <Content Include="jspm_packages\npm\public-encrypt%404.0.0\test\rsa.1024.pub" />
+    <Content Include="jspm_packages\npm\public-encrypt%404.0.0\test\rsa.2028.priv" />
+    <Content Include="jspm_packages\npm\public-encrypt%404.0.0\test\rsa.2028.pub" />
+    <Content Include="jspm_packages\npm\public-encrypt%404.0.0\test\rsa.pass.priv" />
+    <Content Include="jspm_packages\npm\public-encrypt%404.0.0\test\rsa.pass.pub" />
+    <Content Include="jspm_packages\npm\public-encrypt%404.0.0\test\test_cert.pem" />
+    <Content Include="jspm_packages\npm\public-encrypt%404.0.0\test\test_key.pem" />
+    <Content Include="jspm_packages\npm\public-encrypt%404.0.0\test\test_rsa_privkey.pem" />
+    <Content Include="jspm_packages\npm\public-encrypt%404.0.0\test\test_rsa_privkey_encrypted.pem" />
+    <Content Include="jspm_packages\npm\public-encrypt%404.0.0\test\test_rsa_pubkey.pem" />
+    <Content Include="jspm_packages\npm\punycode%401.3.2\.jspm-hash" />
+    <Content Include="jspm_packages\npm\punycode%401.3.2\package.json" />
+    <Content Include="jspm_packages\npm\querystring%400.2.0\.History.md.un~" />
+    <Content Include="jspm_packages\npm\querystring%400.2.0\.jspm-hash" />
+    <Content Include="jspm_packages\npm\querystring%400.2.0\.package.json.un~" />
+    <Content Include="jspm_packages\npm\querystring%400.2.0\.Readme.md.un~" />
+    <Content Include="jspm_packages\npm\querystring%400.2.0\.travis.yml" />
+    <Content Include="jspm_packages\npm\querystring%400.2.0\History.md" />
+    <Content Include="jspm_packages\npm\querystring%400.2.0\License.md" />
+    <Content Include="jspm_packages\npm\querystring%400.2.0\package.json" />
+    <Content Include="jspm_packages\npm\querystring%400.2.0\Readme.md" />
+    <Content Include="jspm_packages\npm\querystring%400.2.0\test\.index.js.un~" />
+    <Content Include="jspm_packages\npm\randombytes%402.0.5\.jspm-hash" />
+    <Content Include="jspm_packages\npm\randombytes%402.0.5\.npmignore" />
+    <Content Include="jspm_packages\npm\randombytes%402.0.5\.travis.yml" />
+    <Content Include="jspm_packages\npm\randombytes%402.0.5\.zuul.yml" />
+    <Content Include="jspm_packages\npm\randombytes%402.0.5\LICENSE" />
+    <Content Include="jspm_packages\npm\randombytes%402.0.5\package.json" />
+    <Content Include="jspm_packages\npm\randombytes%402.0.5\README.md" />
+    <Content Include="jspm_packages\npm\readable-stream%401.1.14\.jspm-hash" />
+    <Content Include="jspm_packages\npm\readable-stream%401.1.14\.npmignore" />
+    <Content Include="jspm_packages\npm\readable-stream%401.1.14\float.patch" />
+    <Content Include="jspm_packages\npm\readable-stream%401.1.14\LICENSE" />
+    <Content Include="jspm_packages\npm\readable-stream%401.1.14\package.json" />
+    <Content Include="jspm_packages\npm\readable-stream%401.1.14\README.md" />
+    <Content Include="jspm_packages\npm\ripemd160%402.0.1\.jspm-hash" />
+    <Content Include="jspm_packages\npm\ripemd160%402.0.1\package.json" />
+    <Content Include="jspm_packages\npm\safe-buffer%405.1.1\.jspm-hash" />
+    <Content Include="jspm_packages\npm\safe-buffer%405.1.1\.travis.yml" />
+    <Content Include="jspm_packages\npm\safe-buffer%405.1.1\LICENSE" />
+    <Content Include="jspm_packages\npm\safe-buffer%405.1.1\package.json" />
+    <Content Include="jspm_packages\npm\safe-buffer%405.1.1\README.md" />
+    <Content Include="jspm_packages\npm\sha.js%402.4.8\.jspm-hash" />
+    <Content Include="jspm_packages\npm\sha.js%402.4.8\.npmignore" />
+    <Content Include="jspm_packages\npm\sha.js%402.4.8\.travis.yml" />
+    <Content Include="jspm_packages\npm\sha.js%402.4.8\LICENSE" />
+    <Content Include="jspm_packages\npm\sha.js%402.4.8\package.json" />
+    <Content Include="jspm_packages\npm\sha.js%402.4.8\README.md" />
+    <Content Include="jspm_packages\npm\source-map%400.5.7\.jspm-hash" />
+    <Content Include="jspm_packages\npm\source-map%400.5.7\dist\source-map.min.js.map" />
+    <Content Include="jspm_packages\npm\source-map%400.5.7\package.json" />
+    <Content Include="jspm_packages\npm\source-map-support%400.4.17\.jspm-hash" />
+    <Content Include="jspm_packages\npm\source-map-support%400.4.17\LICENSE.md" />
+    <Content Include="jspm_packages\npm\source-map-support%400.4.17\package.json" />
+    <Content Include="jspm_packages\npm\source-map-support%400.4.17\README.md" />
+    <Content Include="jspm_packages\npm\stream-browserify%401.0.0\.jspm-hash" />
+    <Content Include="jspm_packages\npm\stream-browserify%401.0.0\.travis.yml" />
+    <Content Include="jspm_packages\npm\stream-browserify%401.0.0\LICENSE" />
+    <Content Include="jspm_packages\npm\stream-browserify%401.0.0\package.json" />
+    <Content Include="jspm_packages\npm\stream-browserify%401.0.0\readme.markdown" />
+    <Content Include="jspm_packages\npm\string_decoder%400.10.31\.jspm-hash" />
+    <Content Include="jspm_packages\npm\string_decoder%400.10.31\.npmignore" />
+    <Content Include="jspm_packages\npm\string_decoder%400.10.31\LICENSE" />
+    <Content Include="jspm_packages\npm\string_decoder%400.10.31\package.json" />
+    <Content Include="jspm_packages\npm\string_decoder%400.10.31\README.md" />
+    <Content Include="jspm_packages\npm\timers-browserify%401.4.2\.jspm-hash" />
+    <Content Include="jspm_packages\npm\timers-browserify%401.4.2\.npmignore" />
+    <Content Include="jspm_packages\npm\timers-browserify%401.4.2\CHANGELOG.md" />
+    <Content Include="jspm_packages\npm\timers-browserify%401.4.2\example\enroll\build.sh" />
+    <Content Include="jspm_packages\npm\timers-browserify%401.4.2\LICENSE.md" />
+    <Content Include="jspm_packages\npm\timers-browserify%401.4.2\package.json" />
+    <Content Include="jspm_packages\npm\timers-browserify%401.4.2\README.md" />
+    <Content Include="jspm_packages\npm\typescript%402.5.2\.jspm-hash" />
+    <Content Include="jspm_packages\npm\typescript%402.5.2\.mailmap" />
+    <Content Include="jspm_packages\npm\typescript%402.5.2\.npmignore" />
+    <Content Include="jspm_packages\npm\typescript%402.5.2\AUTHORS.md" />
+    <Content Include="jspm_packages\npm\typescript%402.5.2\bin\tsc" />
+    <Content Include="jspm_packages\npm\typescript%402.5.2\bin\tsserver" />
+    <Content Include="jspm_packages\npm\typescript%402.5.2\CONTRIBUTING.md" />
+    <Content Include="jspm_packages\npm\typescript%402.5.2\lib\README.md" />
+    <Content Include="jspm_packages\npm\typescript%402.5.2\package.json" />
+    <Content Include="jspm_packages\npm\typescript%402.5.2\README.md" />
+    <Content Include="jspm_packages\npm\typescript%402.5.2\test.config" />
+    <Content Include="jspm_packages\npm\typescript%402.5.2\yarn.lock" />
+    <Content Include="jspm_packages\npm\url%400.10.3\.jspm-hash" />
+    <Content Include="jspm_packages\npm\url%400.10.3\.npmignore" />
+    <Content Include="jspm_packages\npm\url%400.10.3\.travis.yml" />
+    <Content Include="jspm_packages\npm\url%400.10.3\.zuul.yml" />
+    <Content Include="jspm_packages\npm\url%400.10.3\LICENSE" />
+    <Content Include="jspm_packages\npm\url%400.10.3\package.json" />
+    <Content Include="jspm_packages\npm\url%400.10.3\README.md" />
+    <Content Include="jspm_packages\npm\util%400.10.3\.jspm-hash" />
+    <Content Include="jspm_packages\npm\util%400.10.3\.npmignore" />
+    <Content Include="jspm_packages\npm\util%400.10.3\.travis.yml" />
+    <Content Include="jspm_packages\npm\util%400.10.3\.zuul.yml" />
+    <Content Include="jspm_packages\npm\util%400.10.3\LICENSE" />
+    <Content Include="jspm_packages\npm\util%400.10.3\package.json" />
+    <Content Include="jspm_packages\npm\util%400.10.3\README.md" />
+    <Content Include="jspm_packages\npm\vm-browserify%400.0.4\.jspm-hash" />
+    <Content Include="jspm_packages\npm\vm-browserify%400.0.4\LICENSE" />
+    <Content Include="jspm_packages\npm\vm-browserify%400.0.4\package.json" />
+    <Content Include="jspm_packages\npm\vm-browserify%400.0.4\readme.markdown" />
+    <Content Include="jspm_packages\system-csp-production.js.map" />
+    <Content Include="jspm_packages\system-polyfills.js.map" />
+    <Content Include="jspm_packages\system.js.map" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app.html" />
+    <Content Include="app.js" />
+    <Content Include="content\businessunit\businessunit.html" />
+    <Content Include="content\businessunit\businessunit.js" />
+    <Content Include="config.js" />
+    <Content Include="content\businessunit\businessunitServices.js" />
+    <Content Include="content\employee\employeeServices.js" />
+    <Content Include="Data\pocapp.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>pocapp.edmx</DependentUpon>
+      <LastGenOutput>pocapp.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Data\pocapp.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>pocapp.edmx</DependentUpon>
+      <LastGenOutput>pocapp.cs</LastGenOutput>
+    </Content>
+    <Content Include="content\employee\employee.html" />
+    <Content Include="content\employee\employee.js" />
+    <Content Include="Global.asax" />
+    <Content Include="content\home\home.html" />
+    <Content Include="content\home\home.js" />
+    <Content Include="index.html" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-assert%400.1.0.js" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-assert%400.1.0\index.js" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-buffer%400.1.1.js" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-buffer%400.1.1\index.js" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-constants%400.1.0.js" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-constants%400.1.0\index.js" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-crypto%400.1.0.js" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-crypto%400.1.0\index.js" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-events%400.1.1.js" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-events%400.1.1\index.js" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-fs%400.1.2.js" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-fs%400.1.2\index.js" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-http%401.7.1.js" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-http%401.7.1\index.js" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-http%401.7.1\lib\request.js" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-http%401.7.1\lib\response.js" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-module%400.1.0.js" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-module%400.1.0\index.js" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-net%400.1.2.js" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-net%400.1.2\.gitignore" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-net%400.1.2\api.js" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-net%400.1.2\index.js" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-os%400.1.0.js" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-os%400.1.0\index.js" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-path%400.1.0.js" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-path%400.1.0\index.js" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-process%400.1.2.js" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-process%400.1.2\index.js" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-stream%400.1.0.js" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-stream%400.1.0\index.js" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-string_decoder%400.1.0.js" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-string_decoder%400.1.0\index.js" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-timers%400.1.0.js" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-timers%400.1.0\index.js" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-url%400.1.0.js" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-url%400.1.0\index.js" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-util%400.1.0.js" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-util%400.1.0\index.js" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-vm%400.1.0.js" />
+    <Content Include="jspm_packages\github\jspm\nodelibs-vm%400.1.0\index.js" />
+    <Content Include="jspm_packages\github\systemjs\plugin-css%400.1.35.js" />
+    <Content Include="jspm_packages\github\systemjs\plugin-css%400.1.35\.gitignore" />
+    <Content Include="jspm_packages\github\systemjs\plugin-css%400.1.35\build-post-css\jspm.config.js" />
+    <Content Include="jspm_packages\github\systemjs\plugin-css%400.1.35\build-post-css\postcss-bundle.js" />
+    <Content Include="jspm_packages\github\systemjs\plugin-css%400.1.35\css-plugin-base-builder.js" />
+    <Content Include="jspm_packages\github\systemjs\plugin-css%400.1.35\css-plugin-base.js" />
+    <Content Include="jspm_packages\github\systemjs\plugin-css%400.1.35\css.js" />
+    <Content Include="jspm_packages\github\systemjs\plugin-css%400.1.35\postcss-bundle.js" />
+    <Content Include="jspm_packages\github\systemjs\plugin-css%400.1.35\test\bundle.css" />
+    <Content Include="jspm_packages\github\systemjs\plugin-css%400.1.35\test\bundle.js" />
+    <Content Include="jspm_packages\github\systemjs\plugin-css%400.1.35\test\css.browser.spec.js" />
+    <Content Include="jspm_packages\github\systemjs\plugin-css%400.1.35\test\css.builder.spec.js" />
+    <Content Include="jspm_packages\github\systemjs\plugin-css%400.1.35\test\data\dep.css" />
+    <Content Include="jspm_packages\github\systemjs\plugin-css%400.1.35\test\data\test.css" />
+    <Content Include="jspm_packages\github\systemjs\plugin-css%400.1.35\test\mocha-setup.js" />
+    <Content Include="jspm_packages\github\systemjs\plugin-css%400.1.35\test\phantom.js" />
+    <Content Include="jspm_packages\github\systemjs\plugin-css%400.1.35\test\systemjs-config.js" />
+    <Content Include="jspm_packages\github\systemjs\plugin-css%400.1.35\test\test.js" />
+    <Content Include="jspm_packages\github\systemjs\plugin-css%400.1.35\test\testrunner.html" />
+    <Content Include="jspm_packages\github\systemjs\plugin-json%400.1.2.js" />
+    <Content Include="jspm_packages\github\systemjs\plugin-json%400.1.2\json.js" />
+    <Content Include="jspm_packages\github\systemjs\plugin-json%400.1.2\test.html" />
+    <Content Include="jspm_packages\github\twbs\bootstrap%403.3.7.js" />
+    <Content Include="jspm_packages\github\twbs\bootstrap%403.3.7\css\bootstrap-theme.css" />
+    <Content Include="jspm_packages\github\twbs\bootstrap%403.3.7\css\bootstrap-theme.min.css" />
+    <Content Include="jspm_packages\github\twbs\bootstrap%403.3.7\css\bootstrap.css" />
+    <Content Include="jspm_packages\github\twbs\bootstrap%403.3.7\css\bootstrap.min.css" />
+    <Content Include="jspm_packages\github\twbs\bootstrap%403.3.7\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="jspm_packages\github\twbs\bootstrap%403.3.7\js\bootstrap.js" />
+    <Content Include="jspm_packages\github\twbs\bootstrap%403.3.7\js\bootstrap.min.js" />
+    <Content Include="jspm_packages\github\twbs\bootstrap%403.3.7\js\npm.js" />
+    <Content Include="jspm_packages\npm\asn1.js%404.9.1.js" />
+    <Content Include="jspm_packages\npm\asn1.js%404.9.1\lib\asn1.js" />
+    <Content Include="jspm_packages\npm\asn1.js%404.9.1\lib\asn1\api.js" />
+    <Content Include="jspm_packages\npm\asn1.js%404.9.1\lib\asn1\base.js" />
+    <Content Include="jspm_packages\npm\asn1.js%404.9.1\lib\asn1\base\buffer.js" />
+    <Content Include="jspm_packages\npm\asn1.js%404.9.1\lib\asn1\base\index.js" />
+    <Content Include="jspm_packages\npm\asn1.js%404.9.1\lib\asn1\base\node.js" />
+    <Content Include="jspm_packages\npm\asn1.js%404.9.1\lib\asn1\base\reporter.js" />
+    <Content Include="jspm_packages\npm\asn1.js%404.9.1\lib\asn1\constants.js" />
+    <Content Include="jspm_packages\npm\asn1.js%404.9.1\lib\asn1\constants\der.js" />
+    <Content Include="jspm_packages\npm\asn1.js%404.9.1\lib\asn1\constants\index.js" />
+    <Content Include="jspm_packages\npm\asn1.js%404.9.1\lib\asn1\decoders.js" />
+    <Content Include="jspm_packages\npm\asn1.js%404.9.1\lib\asn1\decoders\der.js" />
+    <Content Include="jspm_packages\npm\asn1.js%404.9.1\lib\asn1\decoders\index.js" />
+    <Content Include="jspm_packages\npm\asn1.js%404.9.1\lib\asn1\decoders\pem.js" />
+    <Content Include="jspm_packages\npm\asn1.js%404.9.1\lib\asn1\encoders.js" />
+    <Content Include="jspm_packages\npm\asn1.js%404.9.1\lib\asn1\encoders\der.js" />
+    <Content Include="jspm_packages\npm\asn1.js%404.9.1\lib\asn1\encoders\index.js" />
+    <Content Include="jspm_packages\npm\asn1.js%404.9.1\lib\asn1\encoders\pem.js" />
+    <Content Include="jspm_packages\npm\asn1.js%404.9.1\test.js" />
+    <Content Include="jspm_packages\npm\assert%401.4.1.js" />
+    <Content Include="jspm_packages\npm\assert%401.4.1\assert.js" />
+    <Content Include="jspm_packages\npm\assert%401.4.1\test.js" />
+    <Content Include="jspm_packages\npm\aurelia-binding%401.2.2.js" />
+    <Content Include="jspm_packages\npm\aurelia-binding%401.2.2\aurelia-binding.js" />
+    <Content Include="jspm_packages\npm\aurelia-binding%401.2.2\index.js" />
+    <Content Include="jspm_packages\npm\aurelia-bootstrapper%402.1.1.js" />
+    <Content Include="jspm_packages\npm\aurelia-bootstrapper%402.1.1\aurelia-bootstrapper.js" />
+    <Content Include="jspm_packages\npm\aurelia-bootstrapper%402.1.1\index.js" />
+    <Content Include="jspm_packages\npm\aurelia-dependency-injection%401.3.2.js" />
+    <Content Include="jspm_packages\npm\aurelia-dependency-injection%401.3.2\aurelia-dependency-injection.js" />
+    <Content Include="jspm_packages\npm\aurelia-dependency-injection%401.3.2\index.js" />
+    <Content Include="jspm_packages\npm\aurelia-event-aggregator%401.0.1.js" />
+    <Content Include="jspm_packages\npm\aurelia-event-aggregator%401.0.1\aurelia-event-aggregator.js" />
+    <Content Include="jspm_packages\npm\aurelia-event-aggregator%401.0.1\index.js" />
+    <Content Include="jspm_packages\npm\aurelia-framework%401.1.4.js" />
+    <Content Include="jspm_packages\npm\aurelia-framework%401.1.4\aurelia-framework.js" />
+    <Content Include="jspm_packages\npm\aurelia-framework%401.1.4\index.js" />
+    <Content Include="jspm_packages\npm\aurelia-history%401.0.0.js" />
+    <Content Include="jspm_packages\npm\aurelia-history%401.0.0\aurelia-history.js" />
+    <Content Include="jspm_packages\npm\aurelia-history%401.0.0\index.js" />
+    <Content Include="jspm_packages\npm\aurelia-history-browser%401.0.0.js" />
+    <Content Include="jspm_packages\npm\aurelia-history-browser%401.0.0\aurelia-history-browser.js" />
+    <Content Include="jspm_packages\npm\aurelia-history-browser%401.0.0\index.js" />
+    <Content Include="jspm_packages\npm\aurelia-http-client%401.1.1.js" />
+    <Content Include="jspm_packages\npm\aurelia-http-client%401.1.1\aurelia-http-client.js" />
+    <Content Include="jspm_packages\npm\aurelia-http-client%401.1.1\index.js" />
+    <Content Include="jspm_packages\npm\aurelia-loader%401.0.0.js" />
+    <Content Include="jspm_packages\npm\aurelia-loader%401.0.0\aurelia-loader.js" />
+    <Content Include="jspm_packages\npm\aurelia-loader%401.0.0\index.js" />
+    <Content Include="jspm_packages\npm\aurelia-loader-default%401.0.2.js" />
+    <Content Include="jspm_packages\npm\aurelia-loader-default%401.0.2\aurelia-loader-default.js" />
+    <Content Include="jspm_packages\npm\aurelia-loader-default%401.0.2\index.js" />
+    <Content Include="jspm_packages\npm\aurelia-logging%401.3.1.js" />
+    <Content Include="jspm_packages\npm\aurelia-logging%401.3.1\aurelia-logging.js" />
+    <Content Include="jspm_packages\npm\aurelia-logging%401.3.1\index.js" />
+    <Content Include="jspm_packages\npm\aurelia-logging-console%401.0.0.js" />
+    <Content Include="jspm_packages\npm\aurelia-logging-console%401.0.0\aurelia-logging-console.js" />
+    <Content Include="jspm_packages\npm\aurelia-logging-console%401.0.0\index.js" />
+    <Content Include="jspm_packages\npm\aurelia-metadata%401.0.3.js" />
+    <Content Include="jspm_packages\npm\aurelia-metadata%401.0.3\aurelia-metadata.js" />
+    <Content Include="jspm_packages\npm\aurelia-metadata%401.0.3\index.js" />
+    <Content Include="jspm_packages\npm\aurelia-pal%401.4.0.js" />
+    <Content Include="jspm_packages\npm\aurelia-pal%401.4.0\aurelia-pal.js" />
+    <Content Include="jspm_packages\npm\aurelia-pal%401.4.0\index.js" />
+    <Content Include="jspm_packages\npm\aurelia-pal-browser%401.3.0.js" />
+    <Content Include="jspm_packages\npm\aurelia-pal-browser%401.3.0\aurelia-pal-browser.js" />
+    <Content Include="jspm_packages\npm\aurelia-pal-browser%401.3.0\index.js" />
+    <Content Include="jspm_packages\npm\aurelia-path%401.1.1.js" />
+    <Content Include="jspm_packages\npm\aurelia-path%401.1.1\aurelia-path.js" />
+    <Content Include="jspm_packages\npm\aurelia-path%401.1.1\index.js" />
+    <Content Include="jspm_packages\npm\aurelia-polyfills%401.2.2.js" />
+    <Content Include="jspm_packages\npm\aurelia-polyfills%401.2.2\aurelia-polyfills.js" />
+    <Content Include="jspm_packages\npm\aurelia-polyfills%401.2.2\index.js" />
+    <Content Include="jspm_packages\npm\aurelia-route-recognizer%401.1.0.js" />
+    <Content Include="jspm_packages\npm\aurelia-route-recognizer%401.1.0\aurelia-route-recognizer.js" />
+    <Content Include="jspm_packages\npm\aurelia-route-recognizer%401.1.0\index.js" />
+    <Content Include="jspm_packages\npm\aurelia-router%401.3.0.js" />
+    <Content Include="jspm_packages\npm\aurelia-router%401.3.0\aurelia-router.js" />
+    <Content Include="jspm_packages\npm\aurelia-router%401.3.0\index.js" />
+    <Content Include="jspm_packages\npm\aurelia-task-queue%401.2.0.js" />
+    <Content Include="jspm_packages\npm\aurelia-task-queue%401.2.0\aurelia-task-queue.js" />
+    <Content Include="jspm_packages\npm\aurelia-task-queue%401.2.0\index.js" />
+    <Content Include="jspm_packages\npm\aurelia-templating%401.4.2.js" />
+    <Content Include="jspm_packages\npm\aurelia-templating%401.4.2\aurelia-templating.js" />
+    <Content Include="jspm_packages\npm\aurelia-templating%401.4.2\index.js" />
+    <Content Include="jspm_packages\npm\aurelia-templating-binding%401.3.0.js" />
+    <Content Include="jspm_packages\npm\aurelia-templating-binding%401.3.0\aurelia-templating-binding.js" />
+    <Content Include="jspm_packages\npm\aurelia-templating-binding%401.3.0\index.js" />
+    <Content Include="jspm_packages\npm\aurelia-templating-resources%401.4.0.js" />
+    <Content Include="jspm_packages\npm\aurelia-templating-resources%401.4.0\abstract-repeater.js" />
+    <Content Include="jspm_packages\npm\aurelia-templating-resources%401.4.0\analyze-view-factory.js" />
+    <Content Include="jspm_packages\npm\aurelia-templating-resources%401.4.0\array-repeat-strategy.js" />
+    <Content Include="jspm_packages\npm\aurelia-templating-resources%401.4.0\attr-binding-behavior.js" />
+    <Content Include="jspm_packages\npm\aurelia-templating-resources%401.4.0\aurelia-hide-style.js" />
+    <Content Include="jspm_packages\npm\aurelia-templating-resources%401.4.0\aurelia-templating-resources.js" />
+    <Content Include="jspm_packages\npm\aurelia-templating-resources%401.4.0\binding-mode-behaviors.js" />
+    <Content Include="jspm_packages\npm\aurelia-templating-resources%401.4.0\binding-signaler.js" />
+    <Content Include="jspm_packages\npm\aurelia-templating-resources%401.4.0\compose.js" />
+    <Content Include="jspm_packages\npm\aurelia-templating-resources%401.4.0\css-resource.js" />
+    <Content Include="jspm_packages\npm\aurelia-templating-resources%401.4.0\debounce-binding-behavior.js" />
+    <Content Include="jspm_packages\npm\aurelia-templating-resources%401.4.0\dynamic-element.js" />
+    <Content Include="jspm_packages\npm\aurelia-templating-resources%401.4.0\focus.js" />
+    <Content Include="jspm_packages\npm\aurelia-templating-resources%401.4.0\hide.js" />
+    <Content Include="jspm_packages\npm\aurelia-templating-resources%401.4.0\html-resource-plugin.js" />
+    <Content Include="jspm_packages\npm\aurelia-templating-resources%401.4.0\html-sanitizer.js" />
+    <Content Include="jspm_packages\npm\aurelia-templating-resources%401.4.0\if.js" />
+    <Content Include="jspm_packages\npm\aurelia-templating-resources%401.4.0\index.js" />
+    <Content Include="jspm_packages\npm\aurelia-templating-resources%401.4.0\map-repeat-strategy.js" />
+    <Content Include="jspm_packages\npm\aurelia-templating-resources%401.4.0\null-repeat-strategy.js" />
+    <Content Include="jspm_packages\npm\aurelia-templating-resources%401.4.0\number-repeat-strategy.js" />
+    <Content Include="jspm_packages\npm\aurelia-templating-resources%401.4.0\repeat-strategy-locator.js" />
+    <Content Include="jspm_packages\npm\aurelia-templating-resources%401.4.0\repeat-utilities.js" />
+    <Content Include="jspm_packages\npm\aurelia-templating-resources%401.4.0\repeat.js" />
+    <Content Include="jspm_packages\npm\aurelia-templating-resources%401.4.0\replaceable.js" />
+    <Content Include="jspm_packages\npm\aurelia-templating-resources%401.4.0\sanitize-html.js" />
+    <Content Include="jspm_packages\npm\aurelia-templating-resources%401.4.0\self-binding-behavior.js" />
+    <Content Include="jspm_packages\npm\aurelia-templating-resources%401.4.0\set-repeat-strategy.js" />
+    <Content Include="jspm_packages\npm\aurelia-templating-resources%401.4.0\show.js" />
+    <Content Include="jspm_packages\npm\aurelia-templating-resources%401.4.0\signal-binding-behavior.js" />
+    <Content Include="jspm_packages\npm\aurelia-templating-resources%401.4.0\throttle-binding-behavior.js" />
+    <Content Include="jspm_packages\npm\aurelia-templating-resources%401.4.0\update-trigger-binding-behavior.js" />
+    <Content Include="jspm_packages\npm\aurelia-templating-resources%401.4.0\with.js" />
+    <Content Include="jspm_packages\npm\aurelia-templating-router%401.1.0.js" />
+    <Content Include="jspm_packages\npm\aurelia-templating-router%401.1.0\aurelia-templating-router.js" />
+    <Content Include="jspm_packages\npm\aurelia-templating-router%401.1.0\index.js" />
+    <Content Include="jspm_packages\npm\aurelia-templating-router%401.1.0\route-href.js" />
+    <Content Include="jspm_packages\npm\aurelia-templating-router%401.1.0\route-loader.js" />
+    <Content Include="jspm_packages\npm\aurelia-templating-router%401.1.0\router-view.js" />
+    <Content Include="jspm_packages\npm\aurelia-validation%401.1.1.js" />
+    <Content Include="jspm_packages\npm\aurelia-validation%401.1.1\aurelia-validation.d.ts" />
+    <Content Include="jspm_packages\npm\aurelia-validation%401.1.1\aurelia-validation.js" />
+    <Content Include="jspm_packages\npm\aurelia-validation%401.1.1\controller-validate-result.d.ts" />
+    <Content Include="jspm_packages\npm\aurelia-validation%401.1.1\controller-validate-result.js" />
+    <Content Include="jspm_packages\npm\aurelia-validation%401.1.1\get-target-dom-element.d.ts" />
+    <Content Include="jspm_packages\npm\aurelia-validation%401.1.1\get-target-dom-element.js" />
+    <Content Include="jspm_packages\npm\aurelia-validation%401.1.1\implementation\expression-visitor.d.ts" />
+    <Content Include="jspm_packages\npm\aurelia-validation%401.1.1\implementation\expression-visitor.js" />
+    <Content Include="jspm_packages\npm\aurelia-validation%401.1.1\implementation\rule.d.ts" />
+    <Content Include="jspm_packages\npm\aurelia-validation%401.1.1\implementation\rule.js" />
+    <Content Include="jspm_packages\npm\aurelia-validation%401.1.1\implementation\rules.d.ts" />
+    <Content Include="jspm_packages\npm\aurelia-validation%401.1.1\implementation\rules.js" />
+    <Content Include="jspm_packages\npm\aurelia-validation%401.1.1\implementation\standard-validator.d.ts" />
+    <Content Include="jspm_packages\npm\aurelia-validation%401.1.1\implementation\standard-validator.js" />
+    <Content Include="jspm_packages\npm\aurelia-validation%401.1.1\implementation\validation-message-parser.d.ts" />
+    <Content Include="jspm_packages\npm\aurelia-validation%401.1.1\implementation\validation-message-parser.js" />
+    <Content Include="jspm_packages\npm\aurelia-validation%401.1.1\implementation\validation-messages.d.ts" />
+    <Content Include="jspm_packages\npm\aurelia-validation%401.1.1\implementation\validation-messages.js" />
+    <Content Include="jspm_packages\npm\aurelia-validation%401.1.1\implementation\validation-rules.d.ts" />
+    <Content Include="jspm_packages\npm\aurelia-validation%401.1.1\implementation\validation-rules.js" />
+    <Content Include="jspm_packages\npm\aurelia-validation%401.1.1\property-accessor-parser.d.ts" />
+    <Content Include="jspm_packages\npm\aurelia-validation%401.1.1\property-accessor-parser.js" />
+    <Content Include="jspm_packages\npm\aurelia-validation%401.1.1\property-info.d.ts" />
+    <Content Include="jspm_packages\npm\aurelia-validation%401.1.1\property-info.js" />
+    <Content Include="jspm_packages\npm\aurelia-validation%401.1.1\util.d.ts" />
+    <Content Include="jspm_packages\npm\aurelia-validation%401.1.1\util.js" />
+    <Content Include="jspm_packages\npm\aurelia-validation%401.1.1\validate-binding-behavior-base.d.ts" />
+    <Content Include="jspm_packages\npm\aurelia-validation%401.1.1\validate-binding-behavior-base.js" />
+    <Content Include="jspm_packages\npm\aurelia-validation%401.1.1\validate-binding-behavior.d.ts" />
+    <Content Include="jspm_packages\npm\aurelia-validation%401.1.1\validate-binding-behavior.js" />
+    <Content Include="jspm_packages\npm\aurelia-validation%401.1.1\validate-event.d.ts" />
+    <Content Include="jspm_packages\npm\aurelia-validation%401.1.1\validate-event.js" />
+    <Content Include="jspm_packages\npm\aurelia-validation%401.1.1\validate-instruction.d.ts" />
+    <Content Include="jspm_packages\npm\aurelia-validation%401.1.1\validate-instruction.js" />
+    <Content Include="jspm_packages\npm\aurelia-validation%401.1.1\validate-result.d.ts" />
+    <Content Include="jspm_packages\npm\aurelia-validation%401.1.1\validate-result.js" />
+    <Content Include="jspm_packages\npm\aurelia-validation%401.1.1\validate-trigger.d.ts" />
+    <Content Include="jspm_packages\npm\aurelia-validation%401.1.1\validate-trigger.js" />
+    <Content Include="jspm_packages\npm\aurelia-validation%401.1.1\validation-controller-factory.d.ts" />
+    <Content Include="jspm_packages\npm\aurelia-validation%401.1.1\validation-controller-factory.js" />
+    <Content Include="jspm_packages\npm\aurelia-validation%401.1.1\validation-controller.d.ts" />
+    <Content Include="jspm_packages\npm\aurelia-validation%401.1.1\validation-controller.js" />
+    <Content Include="jspm_packages\npm\aurelia-validation%401.1.1\validation-errors-custom-attribute.d.ts" />
+    <Content Include="jspm_packages\npm\aurelia-validation%401.1.1\validation-errors-custom-attribute.js" />
+    <Content Include="jspm_packages\npm\aurelia-validation%401.1.1\validation-renderer-custom-attribute.d.ts" />
+    <Content Include="jspm_packages\npm\aurelia-validation%401.1.1\validation-renderer-custom-attribute.js" />
+    <Content Include="jspm_packages\npm\aurelia-validation%401.1.1\validation-renderer.d.ts" />
+    <Content Include="jspm_packages\npm\aurelia-validation%401.1.1\validation-renderer.js" />
+    <Content Include="jspm_packages\npm\aurelia-validation%401.1.1\validator.d.ts" />
+    <Content Include="jspm_packages\npm\aurelia-validation%401.1.1\validator.js" />
+    <Content Include="jspm_packages\npm\Base64%400.2.1.js" />
+    <Content Include="jspm_packages\npm\Base64%400.2.1\base64.js" />
+    <Content Include="jspm_packages\npm\Base64%400.2.1\base64.min.js" />
+    <Content Include="jspm_packages\npm\base64-js%401.2.1.js" />
+    <Content Include="jspm_packages\npm\base64-js%401.2.1\base64js.min.js" />
+    <Content Include="jspm_packages\npm\base64-js%401.2.1\index.js" />
+    <Content Include="jspm_packages\npm\base64-js%401.2.1\test\big-data.js" />
+    <Content Include="jspm_packages\npm\base64-js%401.2.1\test\convert.js" />
+    <Content Include="jspm_packages\npm\base64-js%401.2.1\test\url-safe.js" />
+    <Content Include="jspm_packages\npm\bn.js%404.11.8.js" />
+    <Content Include="jspm_packages\npm\bn.js%404.11.8\lib\bn.js" />
+    <Content Include="jspm_packages\npm\bn.js%404.11.8\util\genCombMulTo.js" />
+    <Content Include="jspm_packages\npm\bn.js%404.11.8\util\genCombMulTo10.js" />
+    <Content Include="jspm_packages\npm\brorand%401.1.0.js" />
+    <Content Include="jspm_packages\npm\brorand%401.1.0\index.js" />
+    <Content Include="jspm_packages\npm\brorand%401.1.0\test\api-test.js" />
+    <Content Include="jspm_packages\npm\browserify-aes%401.0.8.js" />
+    <Content Include="jspm_packages\npm\browserify-aes%401.0.8\aes.js" />
+    <Content Include="jspm_packages\npm\browserify-aes%401.0.8\authCipher.js" />
+    <Content Include="jspm_packages\npm\browserify-aes%401.0.8\browser.js" />
+    <Content Include="jspm_packages\npm\browserify-aes%401.0.8\decrypter.js" />
+    <Content Include="jspm_packages\npm\browserify-aes%401.0.8\encrypter.js" />
+    <Content Include="jspm_packages\npm\browserify-aes%401.0.8\ghash.js" />
+    <Content Include="jspm_packages\npm\browserify-aes%401.0.8\index.js" />
+    <Content Include="jspm_packages\npm\browserify-aes%401.0.8\modes.js" />
+    <Content Include="jspm_packages\npm\browserify-aes%401.0.8\modes\cbc.js" />
+    <Content Include="jspm_packages\npm\browserify-aes%401.0.8\modes\cfb.js" />
+    <Content Include="jspm_packages\npm\browserify-aes%401.0.8\modes\cfb1.js" />
+    <Content Include="jspm_packages\npm\browserify-aes%401.0.8\modes\cfb8.js" />
+    <Content Include="jspm_packages\npm\browserify-aes%401.0.8\modes\ctr.js" />
+    <Content Include="jspm_packages\npm\browserify-aes%401.0.8\modes\ecb.js" />
+    <Content Include="jspm_packages\npm\browserify-aes%401.0.8\modes\index.js" />
+    <Content Include="jspm_packages\npm\browserify-aes%401.0.8\modes\ofb.js" />
+    <Content Include="jspm_packages\npm\browserify-aes%401.0.8\streamCipher.js" />
+    <Content Include="jspm_packages\npm\browserify-cipher%401.0.0.js" />
+    <Content Include="jspm_packages\npm\browserify-cipher%401.0.0\browser.js" />
+    <Content Include="jspm_packages\npm\browserify-cipher%401.0.0\index.js" />
+    <Content Include="jspm_packages\npm\browserify-cipher%401.0.0\test.js" />
+    <Content Include="jspm_packages\npm\browserify-des%401.0.0.js" />
+    <Content Include="jspm_packages\npm\browserify-des%401.0.0\index.js" />
+    <Content Include="jspm_packages\npm\browserify-des%401.0.0\modes.js" />
+    <Content Include="jspm_packages\npm\browserify-des%401.0.0\test.js" />
+    <Content Include="jspm_packages\npm\browserify-rsa%404.0.1.js" />
+    <Content Include="jspm_packages\npm\browserify-rsa%404.0.1\index.js" />
+    <Content Include="jspm_packages\npm\browserify-rsa%404.0.1\test.js" />
+    <Content Include="jspm_packages\npm\browserify-sign%404.0.4.js" />
+    <Content Include="jspm_packages\npm\browserify-sign%404.0.4\algos.js" />
+    <Content Include="jspm_packages\npm\browserify-sign%404.0.4\browser.js" />
+    <Content Include="jspm_packages\npm\browserify-sign%404.0.4\browser\index.js" />
+    <Content Include="jspm_packages\npm\browserify-sign%404.0.4\browser\sign.js" />
+    <Content Include="jspm_packages\npm\browserify-sign%404.0.4\browser\verify.js" />
+    <Content Include="jspm_packages\npm\browserify-sign%404.0.4\index.js" />
+    <Content Include="jspm_packages\npm\buffer%405.0.7.js" />
+    <Content Include="jspm_packages\npm\buffer%405.0.7\index.js" />
+    <Content Include="jspm_packages\npm\buffer%405.0.7\test\base64.js" />
+    <Content Include="jspm_packages\npm\buffer%405.0.7\test\basic.js" />
+    <Content Include="jspm_packages\npm\buffer%405.0.7\test\compare.js" />
+    <Content Include="jspm_packages\npm\buffer%405.0.7\test\constructor.js" />
+    <Content Include="jspm_packages\npm\buffer%405.0.7\test\from-string.js" />
+    <Content Include="jspm_packages\npm\buffer%405.0.7\test\is-buffer.js" />
+    <Content Include="jspm_packages\npm\buffer%405.0.7\test\methods.js" />
+    <Content Include="jspm_packages\npm\buffer%405.0.7\test\node\test-buffer-alloc.js" />
+    <Content Include="jspm_packages\npm\buffer%405.0.7\test\node\test-buffer-arraybuffer.js" />
+    <Content Include="jspm_packages\npm\buffer%405.0.7\test\node\test-buffer-ascii.js" />
+    <Content Include="jspm_packages\npm\buffer%405.0.7\test\node\test-buffer-bad-overload.js" />
+    <Content Include="jspm_packages\npm\buffer%405.0.7\test\node\test-buffer-badhex.js" />
+    <Content Include="jspm_packages\npm\buffer%405.0.7\test\node\test-buffer-bytelength.js" />
+    <Content Include="jspm_packages\npm\buffer%405.0.7\test\node\test-buffer-compare-offset.js" />
+    <Content Include="jspm_packages\npm\buffer%405.0.7\test\node\test-buffer-concat.js" />
+    <Content Include="jspm_packages\npm\buffer%405.0.7\test\node\test-buffer-fill.js" />
+    <Content Include="jspm_packages\npm\buffer%405.0.7\test\node\test-buffer-includes.js" />
+    <Content Include="jspm_packages\npm\buffer%405.0.7\test\node\test-buffer-indexof.js" />
+    <Content Include="jspm_packages\npm\buffer%405.0.7\test\node\test-buffer-inheritance.js" />
+    <Content Include="jspm_packages\npm\buffer%405.0.7\test\node\test-buffer-inspect.js" />
+    <Content Include="jspm_packages\npm\buffer%405.0.7\test\node\test-buffer-iterator.js" />
+    <Content Include="jspm_packages\npm\buffer%405.0.7\test\node\test-buffer-safe-unsafe.js" />
+    <Content Include="jspm_packages\npm\buffer%405.0.7\test\node\test-buffer-slow.js" />
+    <Content Include="jspm_packages\npm\buffer%405.0.7\test\node\test-buffer-swap.js" />
+    <Content Include="jspm_packages\npm\buffer%405.0.7\test\node\test-buffer-zero-fill-cli.js" />
+    <Content Include="jspm_packages\npm\buffer%405.0.7\test\node\test-buffer-zero-fill-reset.js" />
+    <Content Include="jspm_packages\npm\buffer%405.0.7\test\node\test-buffer.js" />
+    <Content Include="jspm_packages\npm\buffer%405.0.7\test\slice.js" />
+    <Content Include="jspm_packages\npm\buffer%405.0.7\test\static.js" />
+    <Content Include="jspm_packages\npm\buffer%405.0.7\test\to-string.js" />
+    <Content Include="jspm_packages\npm\buffer%405.0.7\test\write.js" />
+    <Content Include="jspm_packages\npm\buffer%405.0.7\test\write_infinity.js" />
+    <Content Include="jspm_packages\npm\buffer-xor%401.0.3.js" />
+    <Content Include="jspm_packages\npm\buffer-xor%401.0.3\index.js" />
+    <Content Include="jspm_packages\npm\buffer-xor%401.0.3\inline.js" />
+    <Content Include="jspm_packages\npm\buffer-xor%401.0.3\inplace.js" />
+    <Content Include="jspm_packages\npm\buffer-xor%401.0.3\test.js" />
+    <Content Include="jspm_packages\npm\buffer-xor%401.0.3\test\index.js" />
+    <Content Include="jspm_packages\npm\cipher-base%401.0.4.js" />
+    <Content Include="jspm_packages\npm\cipher-base%401.0.4\index.js" />
+    <Content Include="jspm_packages\npm\cipher-base%401.0.4\test.js" />
+    <Content Include="jspm_packages\npm\constants-browserify%400.0.1.js" />
+    <Content Include="jspm_packages\npm\core-util-is%401.0.2.js" />
+    <Content Include="jspm_packages\npm\core-util-is%401.0.2\lib\util.js" />
+    <Content Include="jspm_packages\npm\core-util-is%401.0.2\test.js" />
+    <Content Include="jspm_packages\npm\create-ecdh%404.0.0.js" />
+    <Content Include="jspm_packages\npm\create-ecdh%404.0.0\browser.js" />
+    <Content Include="jspm_packages\npm\create-ecdh%404.0.0\index.js" />
+    <Content Include="jspm_packages\npm\create-hash%401.1.3.js" />
+    <Content Include="jspm_packages\npm\create-hash%401.1.3\browser.js" />
+    <Content Include="jspm_packages\npm\create-hash%401.1.3\index.js" />
+    <Content Include="jspm_packages\npm\create-hash%401.1.3\make-hash.js" />
+    <Content Include="jspm_packages\npm\create-hash%401.1.3\md5.js" />
+    <Content Include="jspm_packages\npm\create-hash%401.1.3\test.js" />
+    <Content Include="jspm_packages\npm\create-hmac%401.1.6.js" />
+    <Content Include="jspm_packages\npm\create-hmac%401.1.6\browser.js" />
+    <Content Include="jspm_packages\npm\create-hmac%401.1.6\index.js" />
+    <Content Include="jspm_packages\npm\create-hmac%401.1.6\legacy.js" />
+    <Content Include="jspm_packages\npm\crypto-browserify%403.11.1.js" />
+    <Content Include="jspm_packages\npm\crypto-browserify%403.11.1\example\bundle.js" />
+    <Content Include="jspm_packages\npm\crypto-browserify%403.11.1\example\index.html" />
+    <Content Include="jspm_packages\npm\crypto-browserify%403.11.1\example\test.js" />
+    <Content Include="jspm_packages\npm\crypto-browserify%403.11.1\index.js" />
+    <Content Include="jspm_packages\npm\crypto-browserify%403.11.1\test.js" />
+    <Content Include="jspm_packages\npm\crypto-browserify%403.11.1\test\aes.js" />
+    <Content Include="jspm_packages\npm\crypto-browserify%403.11.1\test\create-hash.js" />
+    <Content Include="jspm_packages\npm\crypto-browserify%403.11.1\test\create-hmac.js" />
+    <Content Include="jspm_packages\npm\crypto-browserify%403.11.1\test\dh.js" />
+    <Content Include="jspm_packages\npm\crypto-browserify%403.11.1\test\ecdh.js" />
+    <Content Include="jspm_packages\npm\crypto-browserify%403.11.1\test\index.js" />
+    <Content Include="jspm_packages\npm\crypto-browserify%403.11.1\test\node\dh.js" />
+    <Content Include="jspm_packages\npm\crypto-browserify%403.11.1\test\pbkdf2.js" />
+    <Content Include="jspm_packages\npm\crypto-browserify%403.11.1\test\public-encrypt.js" />
+    <Content Include="jspm_packages\npm\crypto-browserify%403.11.1\test\random-bytes.js" />
+    <Content Include="jspm_packages\npm\crypto-browserify%403.11.1\test\sign.js" />
+    <Content Include="jspm_packages\npm\des.js%401.0.0.js" />
+    <Content Include="jspm_packages\npm\des.js%401.0.0\lib\des.js" />
+    <Content Include="jspm_packages\npm\des.js%401.0.0\lib\des\cbc.js" />
+    <Content Include="jspm_packages\npm\des.js%401.0.0\lib\des\cipher.js" />
+    <Content Include="jspm_packages\npm\des.js%401.0.0\lib\des\des.js" />
+    <Content Include="jspm_packages\npm\des.js%401.0.0\lib\des\ede.js" />
+    <Content Include="jspm_packages\npm\des.js%401.0.0\lib\des\utils.js" />
+    <Content Include="jspm_packages\npm\des.js%401.0.0\test\cbc-test.js" />
+    <Content Include="jspm_packages\npm\des.js%401.0.0\test\des-test.js" />
+    <Content Include="jspm_packages\npm\des.js%401.0.0\test\ede-test.js" />
+    <Content Include="jspm_packages\npm\des.js%401.0.0\test\fixtures.js" />
+    <Content Include="jspm_packages\npm\des.js%401.0.0\test\utils-test.js" />
+    <Content Include="jspm_packages\npm\diffie-hellman%405.0.2.js" />
+    <Content Include="jspm_packages\npm\diffie-hellman%405.0.2\browser.js" />
+    <Content Include="jspm_packages\npm\diffie-hellman%405.0.2\index.js" />
+    <Content Include="jspm_packages\npm\diffie-hellman%405.0.2\lib\dh.js" />
+    <Content Include="jspm_packages\npm\diffie-hellman%405.0.2\lib\generatePrime.js" />
+    <Content Include="jspm_packages\npm\elliptic%406.4.0.js" />
+    <Content Include="jspm_packages\npm\elliptic%406.4.0\lib\elliptic.js" />
+    <Content Include="jspm_packages\npm\elliptic%406.4.0\lib\elliptic\curve.js" />
+    <Content Include="jspm_packages\npm\elliptic%406.4.0\lib\elliptic\curves.js" />
+    <Content Include="jspm_packages\npm\elliptic%406.4.0\lib\elliptic\curve\base.js" />
+    <Content Include="jspm_packages\npm\elliptic%406.4.0\lib\elliptic\curve\edwards.js" />
+    <Content Include="jspm_packages\npm\elliptic%406.4.0\lib\elliptic\curve\index.js" />
+    <Content Include="jspm_packages\npm\elliptic%406.4.0\lib\elliptic\curve\mont.js" />
+    <Content Include="jspm_packages\npm\elliptic%406.4.0\lib\elliptic\curve\short.js" />
+    <Content Include="jspm_packages\npm\elliptic%406.4.0\lib\elliptic\ec.js" />
+    <Content Include="jspm_packages\npm\elliptic%406.4.0\lib\elliptic\ec\index.js" />
+    <Content Include="jspm_packages\npm\elliptic%406.4.0\lib\elliptic\ec\key.js" />
+    <Content Include="jspm_packages\npm\elliptic%406.4.0\lib\elliptic\ec\signature.js" />
+    <Content Include="jspm_packages\npm\elliptic%406.4.0\lib\elliptic\eddsa.js" />
+    <Content Include="jspm_packages\npm\elliptic%406.4.0\lib\elliptic\eddsa\index.js" />
+    <Content Include="jspm_packages\npm\elliptic%406.4.0\lib\elliptic\eddsa\key.js" />
+    <Content Include="jspm_packages\npm\elliptic%406.4.0\lib\elliptic\eddsa\signature.js" />
+    <Content Include="jspm_packages\npm\elliptic%406.4.0\lib\elliptic\precomputed\secp256k1.js" />
+    <Content Include="jspm_packages\npm\elliptic%406.4.0\lib\elliptic\utils.js" />
+    <Content Include="jspm_packages\npm\events%401.0.2.js" />
+    <Content Include="jspm_packages\npm\events%401.0.2\events.js" />
+    <Content Include="jspm_packages\npm\events%401.0.2\tests.js" />
+    <Content Include="jspm_packages\npm\events%401.0.2\tests\add-listeners.js" />
+    <Content Include="jspm_packages\npm\events%401.0.2\tests\check-listener-leaks.js" />
+    <Content Include="jspm_packages\npm\events%401.0.2\tests\common.js" />
+    <Content Include="jspm_packages\npm\events%401.0.2\tests\index.js" />
+    <Content Include="jspm_packages\npm\events%401.0.2\tests\legacy-compat.js" />
+    <Content Include="jspm_packages\npm\events%401.0.2\tests\listeners-side-effects.js" />
+    <Content Include="jspm_packages\npm\events%401.0.2\tests\listeners.js" />
+    <Content Include="jspm_packages\npm\events%401.0.2\tests\max-listeners.js" />
+    <Content Include="jspm_packages\npm\events%401.0.2\tests\modify-in-emit.js" />
+    <Content Include="jspm_packages\npm\events%401.0.2\tests\num-args.js" />
+    <Content Include="jspm_packages\npm\events%401.0.2\tests\once.js" />
+    <Content Include="jspm_packages\npm\events%401.0.2\tests\remove-all-listeners.js" />
+    <Content Include="jspm_packages\npm\events%401.0.2\tests\remove-listeners.js" />
+    <Content Include="jspm_packages\npm\events%401.0.2\tests\set-max-listeners-side-effects.js" />
+    <Content Include="jspm_packages\npm\events%401.0.2\tests\subclass.js" />
+    <Content Include="jspm_packages\npm\evp_bytestokey%401.0.3.js" />
+    <Content Include="jspm_packages\npm\evp_bytestokey%401.0.3\index.js" />
+    <Content Include="jspm_packages\npm\font-awesome%404.7.0.js" />
+    <Content Include="jspm_packages\npm\font-awesome%404.7.0\css\font-awesome.css" />
+    <Content Include="jspm_packages\npm\font-awesome%404.7.0\css\font-awesome.min.css" />
+    <Content Include="jspm_packages\npm\font-awesome%404.7.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="jspm_packages\npm\font-awesome%404.7.0\HELP-US-OUT.txt" />
+    <Content Include="jspm_packages\npm\hash-base%402.0.2.js" />
+    <Content Include="jspm_packages\npm\hash-base%402.0.2\index.js" />
+    <Content Include="jspm_packages\npm\hash-base%403.0.4.js" />
+    <Content Include="jspm_packages\npm\hash-base%403.0.4\index.js" />
+    <Content Include="jspm_packages\npm\hash.js%401.1.3.js" />
+    <Content Include="jspm_packages\npm\hash.js%401.1.3\.eslintrc.js" />
+    <Content Include="jspm_packages\npm\hash.js%401.1.3\lib\hash.d.ts" />
+    <Content Include="jspm_packages\npm\hash.js%401.1.3\lib\hash.js" />
+    <Content Include="jspm_packages\npm\hash.js%401.1.3\lib\hash\common.js" />
+    <Content Include="jspm_packages\npm\hash.js%401.1.3\lib\hash\hmac.js" />
+    <Content Include="jspm_packages\npm\hash.js%401.1.3\lib\hash\ripemd.js" />
+    <Content Include="jspm_packages\npm\hash.js%401.1.3\lib\hash\sha.js" />
+    <Content Include="jspm_packages\npm\hash.js%401.1.3\lib\hash\sha\1.js" />
+    <Content Include="jspm_packages\npm\hash.js%401.1.3\lib\hash\sha\224.js" />
+    <Content Include="jspm_packages\npm\hash.js%401.1.3\lib\hash\sha\256.js" />
+    <Content Include="jspm_packages\npm\hash.js%401.1.3\lib\hash\sha\384.js" />
+    <Content Include="jspm_packages\npm\hash.js%401.1.3\lib\hash\sha\512.js" />
+    <Content Include="jspm_packages\npm\hash.js%401.1.3\lib\hash\sha\common.js" />
+    <Content Include="jspm_packages\npm\hash.js%401.1.3\lib\hash\utils.js" />
+    <Content Include="jspm_packages\npm\hash.js%401.1.3\test\hash-test.js" />
+    <Content Include="jspm_packages\npm\hash.js%401.1.3\test\hmac-test.js" />
+    <Content Include="jspm_packages\npm\hmac-drbg%401.0.1.js" />
+    <Content Include="jspm_packages\npm\hmac-drbg%401.0.1\lib\hmac-drbg.js" />
+    <Content Include="jspm_packages\npm\hmac-drbg%401.0.1\test\drbg-test.js" />
+    <Content Include="jspm_packages\npm\ieee754%401.1.8.js" />
+    <Content Include="jspm_packages\npm\ieee754%401.1.8\index.js" />
+    <Content Include="jspm_packages\npm\ieee754%401.1.8\test\basic.js" />
+    <Content Include="jspm_packages\npm\indexof%400.0.1.js" />
+    <Content Include="jspm_packages\npm\indexof%400.0.1\index.js" />
+    <Content Include="jspm_packages\npm\inherits%402.0.1.js" />
+    <Content Include="jspm_packages\npm\inherits%402.0.1\inherits.js" />
+    <Content Include="jspm_packages\npm\inherits%402.0.1\inherits_browser.js" />
+    <Content Include="jspm_packages\npm\inherits%402.0.3.js" />
+    <Content Include="jspm_packages\npm\inherits%402.0.3\inherits.js" />
+    <Content Include="jspm_packages\npm\inherits%402.0.3\inherits_browser.js" />
+    <Content Include="jspm_packages\npm\isarray%400.0.1.js" />
+    <Content Include="jspm_packages\npm\isarray%400.0.1\build\build.js" />
+    <Content Include="jspm_packages\npm\isarray%400.0.1\index.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\AUTHORS.txt" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\dist\core.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\dist\jquery.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\dist\jquery.min.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\dist\jquery.slim.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\dist\jquery.slim.min.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\external\sizzle\dist\sizzle.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\external\sizzle\dist\sizzle.min.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\external\sizzle\LICENSE.txt" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\LICENSE.txt" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\ajax.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\ajax\jsonp.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\ajax\load.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\ajax\parseXML.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\ajax\script.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\ajax\var\location.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\ajax\var\nonce.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\ajax\var\rquery.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\ajax\xhr.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\attributes.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\attributes\attr.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\attributes\classes.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\attributes\prop.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\attributes\support.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\attributes\val.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\callbacks.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\core.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\core\access.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\core\DOMEval.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\core\init.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\core\nodeName.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\core\parseHTML.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\core\ready-no-deferred.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\core\ready.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\core\readyException.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\core\stripAndCollapse.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\core\support.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\core\var\rsingleTag.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\css.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\css\addGetHookIf.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\css\adjustCSS.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\css\curCSS.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\css\hiddenVisibleSelectors.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\css\showHide.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\css\support.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\css\var\cssExpand.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\css\var\getStyles.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\css\var\isHiddenWithinTree.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\css\var\rmargin.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\css\var\rnumnonpx.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\css\var\swap.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\data.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\data\Data.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\data\var\acceptData.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\data\var\dataPriv.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\data\var\dataUser.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\deferred.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\deferred\exceptionHook.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\deprecated.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\dimensions.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\effects.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\effects\animatedSelector.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\effects\Tween.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\event.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\event\ajax.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\event\alias.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\event\focusin.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\event\support.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\event\trigger.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\exports\amd.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\exports\global.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\jquery.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\manipulation.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\manipulation\buildFragment.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\manipulation\getAll.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\manipulation\setGlobalEval.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\manipulation\support.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\manipulation\var\rcheckableType.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\manipulation\var\rscriptType.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\manipulation\var\rtagName.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\manipulation\wrapMap.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\manipulation\_evalUrl.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\offset.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\queue.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\queue\delay.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\selector-native.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\selector-sizzle.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\selector.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\serialize.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\traversing.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\traversing\findFilter.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\traversing\var\dir.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\traversing\var\rneedsContext.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\traversing\var\siblings.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\var\arr.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\var\class2type.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\var\concat.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\var\document.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\var\documentElement.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\var\fnToString.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\var\getProto.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\var\hasOwn.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\var\indexOf.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\var\ObjectFunctionString.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\var\pnum.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\var\push.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\var\rcssNum.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\var\rnothtmlwhite.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\var\slice.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\var\support.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\var\toString.js" />
+    <Content Include="jspm_packages\npm\jquery%403.2.1\src\wrap.js" />
+    <Content Include="jspm_packages\npm\md5.js%401.3.4.js" />
+    <Content Include="jspm_packages\npm\md5.js%401.3.4\index.js" />
+    <Content Include="jspm_packages\npm\miller-rabin%404.0.0.js" />
+    <Content Include="jspm_packages\npm\miller-rabin%404.0.0\lib\mr.js" />
+    <Content Include="jspm_packages\npm\miller-rabin%404.0.0\test\api-test.js" />
+    <Content Include="jspm_packages\npm\minimalistic-assert%401.0.0.js" />
+    <Content Include="jspm_packages\npm\minimalistic-assert%401.0.0\index.js" />
+    <Content Include="jspm_packages\npm\minimalistic-crypto-utils%401.0.1.js" />
+    <Content Include="jspm_packages\npm\minimalistic-crypto-utils%401.0.1\lib\utils.js" />
+    <Content Include="jspm_packages\npm\minimalistic-crypto-utils%401.0.1\test\utils-test.js" />
+    <Content Include="jspm_packages\npm\os-browserify%400.1.2.js" />
+    <Content Include="jspm_packages\npm\os-browserify%400.1.2\browser.js" />
+    <Content Include="jspm_packages\npm\os-browserify%400.1.2\main.js" />
+    <Content Include="jspm_packages\npm\parse-asn1%405.1.0.js" />
+    <Content Include="jspm_packages\npm\parse-asn1%405.1.0\asn1.js" />
+    <Content Include="jspm_packages\npm\parse-asn1%405.1.0\certificate.js" />
+    <Content Include="jspm_packages\npm\parse-asn1%405.1.0\fixProc.js" />
+    <Content Include="jspm_packages\npm\parse-asn1%405.1.0\index.js" />
+    <Content Include="jspm_packages\npm\parse-asn1%405.1.0\test.js" />
+    <Content Include="jspm_packages\npm\parse-asn1%405.1.0\test\index.js" />
+    <Content Include="jspm_packages\npm\parse-asn1%405.1.0\test\vector.js" />
+    <Content Include="jspm_packages\npm\path-browserify%400.0.0.js" />
+    <Content Include="jspm_packages\npm\path-browserify%400.0.0\index.js" />
+    <Content Include="jspm_packages\npm\pbkdf2%403.0.13.js" />
+    <Content Include="jspm_packages\npm\pbkdf2%403.0.13\browser.js" />
+    <Content Include="jspm_packages\npm\pbkdf2%403.0.13\index.js" />
+    <Content Include="jspm_packages\npm\pbkdf2%403.0.13\lib\async.js" />
+    <Content Include="jspm_packages\npm\pbkdf2%403.0.13\lib\default-encoding.js" />
+    <Content Include="jspm_packages\npm\pbkdf2%403.0.13\lib\precondition.js" />
+    <Content Include="jspm_packages\npm\pbkdf2%403.0.13\lib\sync-browser.js" />
+    <Content Include="jspm_packages\npm\pbkdf2%403.0.13\lib\sync.js" />
+    <Content Include="jspm_packages\npm\process%400.11.10.js" />
+    <Content Include="jspm_packages\npm\process%400.11.10\browser.js" />
+    <Content Include="jspm_packages\npm\process%400.11.10\index.js" />
+    <Content Include="jspm_packages\npm\process%400.11.10\test.js" />
+    <Content Include="jspm_packages\npm\public-encrypt%404.0.0.js" />
+    <Content Include="jspm_packages\npm\public-encrypt%404.0.0\browser.js" />
+    <Content Include="jspm_packages\npm\public-encrypt%404.0.0\index.js" />
+    <Content Include="jspm_packages\npm\public-encrypt%404.0.0\mgf.js" />
+    <Content Include="jspm_packages\npm\public-encrypt%404.0.0\privateDecrypt.js" />
+    <Content Include="jspm_packages\npm\public-encrypt%404.0.0\publicEncrypt.js" />
+    <Content Include="jspm_packages\npm\public-encrypt%404.0.0\test.js" />
+    <Content Include="jspm_packages\npm\public-encrypt%404.0.0\test\index.js" />
+    <Content Include="jspm_packages\npm\public-encrypt%404.0.0\test\nodeTests.js" />
+    <Content Include="jspm_packages\npm\public-encrypt%404.0.0\withPublic.js" />
+    <Content Include="jspm_packages\npm\public-encrypt%404.0.0\xor.js" />
+    <Content Include="jspm_packages\npm\punycode%401.3.2.js" />
+    <Content Include="jspm_packages\npm\punycode%401.3.2\LICENSE-MIT.txt" />
+    <Content Include="jspm_packages\npm\punycode%401.3.2\punycode.js" />
+    <Content Include="jspm_packages\npm\querystring%400.2.0.js" />
+    <Content Include="jspm_packages\npm\querystring%400.2.0\decode.js" />
+    <Content Include="jspm_packages\npm\querystring%400.2.0\encode.js" />
+    <Content Include="jspm_packages\npm\querystring%400.2.0\index.js" />
+    <Content Include="jspm_packages\npm\querystring%400.2.0\test.js" />
+    <Content Include="jspm_packages\npm\querystring%400.2.0\test\common-index.js" />
+    <Content Include="jspm_packages\npm\querystring%400.2.0\test\index.js" />
+    <Content Include="jspm_packages\npm\querystring%400.2.0\test\tap-index.js" />
+    <Content Include="jspm_packages\npm\randombytes%402.0.5.js" />
+    <Content Include="jspm_packages\npm\randombytes%402.0.5\browser.js" />
+    <Content Include="jspm_packages\npm\randombytes%402.0.5\index.js" />
+    <Content Include="jspm_packages\npm\randombytes%402.0.5\test.js" />
+    <Content Include="jspm_packages\npm\readable-stream%401.1.14.js" />
+    <Content Include="jspm_packages\npm\readable-stream%401.1.14\duplex.js" />
+    <Content Include="jspm_packages\npm\readable-stream%401.1.14\lib\_stream_duplex.js" />
+    <Content Include="jspm_packages\npm\readable-stream%401.1.14\lib\_stream_passthrough.js" />
+    <Content Include="jspm_packages\npm\readable-stream%401.1.14\lib\_stream_readable.js" />
+    <Content Include="jspm_packages\npm\readable-stream%401.1.14\lib\_stream_transform.js" />
+    <Content Include="jspm_packages\npm\readable-stream%401.1.14\lib\_stream_writable.js" />
+    <Content Include="jspm_packages\npm\readable-stream%401.1.14\passthrough.js" />
+    <Content Include="jspm_packages\npm\readable-stream%401.1.14\readable.js" />
+    <Content Include="jspm_packages\npm\readable-stream%401.1.14\transform.js" />
+    <Content Include="jspm_packages\npm\readable-stream%401.1.14\writable.js" />
+    <Content Include="jspm_packages\npm\ripemd160%402.0.1.js" />
+    <Content Include="jspm_packages\npm\ripemd160%402.0.1\index.js" />
+    <Content Include="jspm_packages\npm\safe-buffer%405.1.1.js" />
+    <Content Include="jspm_packages\npm\safe-buffer%405.1.1\index.js" />
+    <Content Include="jspm_packages\npm\safe-buffer%405.1.1\test.js" />
+    <Content Include="jspm_packages\npm\sha.js%402.4.8.js" />
+    <Content Include="jspm_packages\npm\sha.js%402.4.8\bin.js" />
+    <Content Include="jspm_packages\npm\sha.js%402.4.8\hash.js" />
+    <Content Include="jspm_packages\npm\sha.js%402.4.8\hexpp.js" />
+    <Content Include="jspm_packages\npm\sha.js%402.4.8\index.js" />
+    <Content Include="jspm_packages\npm\sha.js%402.4.8\sha.js" />
+    <Content Include="jspm_packages\npm\sha.js%402.4.8\sha1.js" />
+    <Content Include="jspm_packages\npm\sha.js%402.4.8\sha224.js" />
+    <Content Include="jspm_packages\npm\sha.js%402.4.8\sha256.js" />
+    <Content Include="jspm_packages\npm\sha.js%402.4.8\sha384.js" />
+    <Content Include="jspm_packages\npm\sha.js%402.4.8\sha512.js" />
+    <Content Include="jspm_packages\npm\sha.js%402.4.8\test\hash.js" />
+    <Content Include="jspm_packages\npm\sha.js%402.4.8\test\test.js" />
+    <Content Include="jspm_packages\npm\sha.js%402.4.8\test\vectors.js" />
+    <Content Include="jspm_packages\npm\source-map%400.5.7.js" />
+    <Content Include="jspm_packages\npm\source-map%400.5.7\dist\source-map.debug.js" />
+    <Content Include="jspm_packages\npm\source-map%400.5.7\dist\source-map.js" />
+    <Content Include="jspm_packages\npm\source-map%400.5.7\dist\source-map.min.js" />
+    <Content Include="jspm_packages\npm\source-map%400.5.7\lib\array-set.js" />
+    <Content Include="jspm_packages\npm\source-map%400.5.7\lib\base64-vlq.js" />
+    <Content Include="jspm_packages\npm\source-map%400.5.7\lib\base64.js" />
+    <Content Include="jspm_packages\npm\source-map%400.5.7\lib\binary-search.js" />
+    <Content Include="jspm_packages\npm\source-map%400.5.7\lib\mapping-list.js" />
+    <Content Include="jspm_packages\npm\source-map%400.5.7\lib\quick-sort.js" />
+    <Content Include="jspm_packages\npm\source-map%400.5.7\lib\source-map-consumer.js" />
+    <Content Include="jspm_packages\npm\source-map%400.5.7\lib\source-map-generator.js" />
+    <Content Include="jspm_packages\npm\source-map%400.5.7\lib\source-node.js" />
+    <Content Include="jspm_packages\npm\source-map%400.5.7\lib\util.js" />
+    <Content Include="jspm_packages\npm\source-map%400.5.7\source-map.js" />
+    <Content Include="jspm_packages\npm\source-map-support%400.4.17.js" />
+    <Content Include="jspm_packages\npm\source-map-support%400.4.17\browser-source-map-support.js" />
+    <Content Include="jspm_packages\npm\source-map-support%400.4.17\register.js" />
+    <Content Include="jspm_packages\npm\source-map-support%400.4.17\source-map-support.js" />
+    <Content Include="jspm_packages\npm\stream-browserify%401.0.0.js" />
+    <Content Include="jspm_packages\npm\stream-browserify%401.0.0\index.js" />
+    <Content Include="jspm_packages\npm\stream-browserify%401.0.0\test\buf.js" />
+    <Content Include="jspm_packages\npm\string_decoder%400.10.31.js" />
+    <Content Include="jspm_packages\npm\string_decoder%400.10.31\index.js" />
+    <Content Include="jspm_packages\npm\timers-browserify%401.4.2.js" />
+    <Content Include="jspm_packages\npm\timers-browserify%401.4.2\example\enroll\index.html" />
+    <Content Include="jspm_packages\npm\timers-browserify%401.4.2\example\enroll\js\browserify.js" />
+    <Content Include="jspm_packages\npm\timers-browserify%401.4.2\example\enroll\js\main.js" />
+    <Content Include="jspm_packages\npm\timers-browserify%401.4.2\example\enroll\server.js" />
+    <Content Include="jspm_packages\npm\timers-browserify%401.4.2\main.js" />
+    <Content Include="jspm_packages\npm\typescript%402.5.2.js" />
+    <Content Include="jspm_packages\npm\typescript%402.5.2\CopyrightNotice.txt" />
+    <Content Include="jspm_packages\npm\typescript%402.5.2\lib\cancellationToken.js" />
+    <Content Include="jspm_packages\npm\typescript%402.5.2\lib\lib.d.ts" />
+    <Content Include="jspm_packages\npm\typescript%402.5.2\lib\lib.dom.d.ts" />
+    <Content Include="jspm_packages\npm\typescript%402.5.2\lib\lib.dom.iterable.d.ts" />
+    <Content Include="jspm_packages\npm\typescript%402.5.2\lib\lib.es2015.collection.d.ts" />
+    <Content Include="jspm_packages\npm\typescript%402.5.2\lib\lib.es2015.core.d.ts" />
+    <Content Include="jspm_packages\npm\typescript%402.5.2\lib\lib.es2015.d.ts" />
+    <Content Include="jspm_packages\npm\typescript%402.5.2\lib\lib.es2015.generator.d.ts" />
+    <Content Include="jspm_packages\npm\typescript%402.5.2\lib\lib.es2015.iterable.d.ts" />
+    <Content Include="jspm_packages\npm\typescript%402.5.2\lib\lib.es2015.promise.d.ts" />
+    <Content Include="jspm_packages\npm\typescript%402.5.2\lib\lib.es2015.proxy.d.ts" />
+    <Content Include="jspm_packages\npm\typescript%402.5.2\lib\lib.es2015.reflect.d.ts" />
+    <Content Include="jspm_packages\npm\typescript%402.5.2\lib\lib.es2015.symbol.d.ts" />
+    <Content Include="jspm_packages\npm\typescript%402.5.2\lib\lib.es2015.symbol.wellknown.d.ts" />
+    <Content Include="jspm_packages\npm\typescript%402.5.2\lib\lib.es2016.array.include.d.ts" />
+    <Content Include="jspm_packages\npm\typescript%402.5.2\lib\lib.es2016.d.ts" />
+    <Content Include="jspm_packages\npm\typescript%402.5.2\lib\lib.es2016.full.d.ts" />
+    <Content Include="jspm_packages\npm\typescript%402.5.2\lib\lib.es2017.d.ts" />
+    <Content Include="jspm_packages\npm\typescript%402.5.2\lib\lib.es2017.full.d.ts" />
+    <Content Include="jspm_packages\npm\typescript%402.5.2\lib\lib.es2017.intl.d.ts" />
+    <Content Include="jspm_packages\npm\typescript%402.5.2\lib\lib.es2017.object.d.ts" />
+    <Content Include="jspm_packages\npm\typescript%402.5.2\lib\lib.es2017.sharedmemory.d.ts" />
+    <Content Include="jspm_packages\npm\typescript%402.5.2\lib\lib.es2017.string.d.ts" />
+    <Content Include="jspm_packages\npm\typescript%402.5.2\lib\lib.es5.d.ts" />
+    <Content Include="jspm_packages\npm\typescript%402.5.2\lib\lib.es6.d.ts" />
+    <Content Include="jspm_packages\npm\typescript%402.5.2\lib\lib.esnext.asynciterable.d.ts" />
+    <Content Include="jspm_packages\npm\typescript%402.5.2\lib\lib.esnext.d.ts" />
+    <Content Include="jspm_packages\npm\typescript%402.5.2\lib\lib.esnext.full.d.ts" />
+    <Content Include="jspm_packages\npm\typescript%402.5.2\lib\lib.scripthost.d.ts" />
+    <Content Include="jspm_packages\npm\typescript%402.5.2\lib\lib.webworker.d.ts" />
+    <Content Include="jspm_packages\npm\typescript%402.5.2\lib\protocol.d.ts" />
+    <Content Include="jspm_packages\npm\typescript%402.5.2\lib\tsc.js" />
+    <Content Include="jspm_packages\npm\typescript%402.5.2\lib\tsserver.js" />
+    <Content Include="jspm_packages\npm\typescript%402.5.2\lib\tsserverlibrary.d.ts" />
+    <Content Include="jspm_packages\npm\typescript%402.5.2\lib\tsserverlibrary.js" />
+    <Content Include="jspm_packages\npm\typescript%402.5.2\lib\typescript.d.ts" />
+    <Content Include="jspm_packages\npm\typescript%402.5.2\lib\typescript.js" />
+    <Content Include="jspm_packages\npm\typescript%402.5.2\lib\typescriptServices.d.ts" />
+    <Content Include="jspm_packages\npm\typescript%402.5.2\lib\typescriptServices.js" />
+    <Content Include="jspm_packages\npm\typescript%402.5.2\lib\typingsInstaller.js" />
+    <Content Include="jspm_packages\npm\typescript%402.5.2\lib\watchGuard.js" />
+    <Content Include="jspm_packages\npm\typescript%402.5.2\LICENSE.txt" />
+    <Content Include="jspm_packages\npm\typescript%402.5.2\ThirdPartyNoticeText.txt" />
+    <Content Include="jspm_packages\npm\url%400.10.3.js" />
+    <Content Include="jspm_packages\npm\url%400.10.3\test.js" />
+    <Content Include="jspm_packages\npm\url%400.10.3\url.js" />
+    <Content Include="jspm_packages\npm\util%400.10.3.js" />
+    <Content Include="jspm_packages\npm\util%400.10.3\support\isBuffer.js" />
+    <Content Include="jspm_packages\npm\util%400.10.3\support\isBufferBrowser.js" />
+    <Content Include="jspm_packages\npm\util%400.10.3\test\browser\inspect.js" />
+    <Content Include="jspm_packages\npm\util%400.10.3\test\browser\is.js" />
+    <Content Include="jspm_packages\npm\util%400.10.3\test\node\debug.js" />
+    <Content Include="jspm_packages\npm\util%400.10.3\test\node\format.js" />
+    <Content Include="jspm_packages\npm\util%400.10.3\test\node\inspect.js" />
+    <Content Include="jspm_packages\npm\util%400.10.3\test\node\log.js" />
+    <Content Include="jspm_packages\npm\util%400.10.3\test\node\util.js" />
+    <Content Include="jspm_packages\npm\util%400.10.3\util.js" />
+    <Content Include="jspm_packages\npm\vm-browserify%400.0.4.js" />
+    <Content Include="jspm_packages\npm\vm-browserify%400.0.4\example\run\bundle.js" />
+    <Content Include="jspm_packages\npm\vm-browserify%400.0.4\example\run\entry.js" />
+    <Content Include="jspm_packages\npm\vm-browserify%400.0.4\example\run\index.html" />
+    <Content Include="jspm_packages\npm\vm-browserify%400.0.4\example\run\server.js" />
+    <Content Include="jspm_packages\npm\vm-browserify%400.0.4\index.js" />
+    <Content Include="jspm_packages\npm\vm-browserify%400.0.4\test\vm.js" />
+    <Content Include="jspm_packages\system-csp-production.js" />
+    <Content Include="jspm_packages\system-csp-production.src.js" />
+    <Content Include="jspm_packages\system-polyfills.js" />
+    <Content Include="jspm_packages\system-polyfills.src.js" />
+    <Content Include="jspm_packages\system.js" />
+    <Content Include="jspm_packages\system.src.js" />
+    <Content Include="scripts\ai.0.22.9-build00167.js" />
+    <Content Include="scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="api\BusinessUnitsController.cs" />
+    <Compile Include="api\EmployeesController.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Data\BusinessUnit.cs">
+      <DependentUpon>pocapp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Employee.cs">
+      <DependentUpon>pocapp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\pocapp.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>pocapp.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\pocapp.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>pocapp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\pocapp.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>pocapp.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EmployeeModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49301</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:49301/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Pta.Build.WebEssentialsBundleTask.1.0.2\build\Pta.Build.WebEssentialsBundleTask.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Pta.Build.WebEssentialsBundleTask.1.0.2\build\Pta.Build.WebEssentialsBundleTask.props'))" />
+    <Error Condition="!Exists('..\packages\Pta.Build.WebEssentialsBundleTask.1.0.2\build\Pta.Build.WebEssentialsBundleTask.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Pta.Build.WebEssentialsBundleTask.1.0.2\build\Pta.Build.WebEssentialsBundleTask.targets'))" />
+  </Target>
+  <Import Project="..\packages\Pta.Build.WebEssentialsBundleTask.1.0.2\build\Pta.Build.WebEssentialsBundleTask.targets" Condition="Exists('..\packages\Pta.Build.WebEssentialsBundleTask.1.0.2\build\Pta.Build.WebEssentialsBundleTask.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

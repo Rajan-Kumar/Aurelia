@@ -1,0 +1,17 @@
+﻿<template>
+    <div class="container">
+        <!--${message}-->
+        <table class="table">
+            <tr>
+                <th>Employee Id</th>
+                <th>Employee Name</th>
+                <th>Business Unit Name</th>
+            </tr>
+            <tr repeat.for="employee of employees">
+                <td>${employee.EmployeeId}</td>
+                <td>${employee.EmployeeName}</td>
+                <td>${employee.BusinessunitName}</td>
+            </tr>
+        </table>
+    </div>
+</template>

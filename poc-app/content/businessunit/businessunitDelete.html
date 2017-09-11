@@ -1,0 +1,20 @@
+﻿<template>
+    <div class="container">
+        <table class="table">
+            <tr>
+                <th>Business Unit ID</th>
+                <th>Business Unit Name</th>
+                <th></th>
+            </tr>
+            <tr repeat.for="businessunit of businessUnits">
+                <td>${businessunit.BusinessUnitId}</td>
+                <td>${businessunit.BusineesUnitName}</td>
+                <td>
+                    <button type="button" class="btn btn-default" click.trigger="deleteBusinessUnit(businessunit.BusinessUnitId)">Delete</button>
+                    <!--<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Delete</button>-->
+                    <!--<input type="button" value="Edit" />-->
+                </td>
+            </tr>
+        </table>
+    </div>       
+</template>

@@ -1,0 +1,46 @@
+﻿<template>
+    <div class="container">   
+        <!--${message}-->    
+        <div class="panel panel-body">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">
+                        Business Unit Id
+                    </label>
+                    <div class="col-sm-10">
+                        <input type="text" placeholder="Employee Id" class="form-control"
+                               value.bind="employee.employeeId" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">
+                        Business Unit Name
+                    </label>
+                    <div class="col-sm-10">
+                        <input type="text" placeholder="Employee Name" class="form-control"
+                               value.bind="employee.employeeName" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">
+                        Select Business Unit
+                    </label>
+                    <div class="col-sm-10">
+                        <select value.bind="selectedBusinessunitId" class="form-control">
+                            <option model.bind="null">-Choose Business unit-</option>
+                            <option value="${businessUnit.BusinessUnitId}"
+                                    repeat.for="businessUnit of businessUnits">
+                                  ${businessUnit.BusineesUnitName}
+                            </option>
+                        </select>
+                        <!--<p>Selected Country Id: ${selectedBusinessunitId}</p>-->
+                    </div>
+                </div>
+                <button class="btn btn-primary" click.trigger="saveEmployee()">Save</button>
+                <button class="btn btn-default" click.trigger="clear()">Clear</button>      
+            </form>
+        </div>
+    </div>
+</template>
