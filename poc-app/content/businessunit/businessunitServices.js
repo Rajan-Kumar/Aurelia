@@ -29,6 +29,22 @@ export class BusinessunitServices
                 .withContent(businessunit)
         
         return request.send().then(response => response.content);
-    }    
+    }  
+    
+    deleteBusinessUnit(businessUnitId)
+    {
+        //var request= this.http.createRequest();
+        //request.asDelete()
+        //        .withUrl(baseUrl)
+        //        .withHeader("Accept","application/json")
+        //        .withHeader("Content-Type","application/json")
+        //        .withContent(businessUnitId)
+        
+        //return request.send().then(response => response.content);
+        return this.http.delete(`${baseUrl}/${businessUnitId}`)
+                   .then(response => {
+                       return response.content;
+                   });
+    }
     
 }

@@ -40,6 +40,6 @@ D:\poc-app\poc-app\bin\Newtonsoft.Json.xml
 D:\poc-app\poc-app\bin\System.Net.Http.Formatting.xml
 D:\poc-app\poc-app\bin\System.Web.Http.xml
 D:\poc-app\poc-app\bin\System.Web.Http.WebHost.xml
-D:\poc-app\poc-app\obj\Debug\poc-app.csprojResolveAssemblyReference.cache
 D:\poc-app\poc-app\obj\Debug\poc-app.dll
 D:\poc-app\poc-app\obj\Debug\poc-app.pdb
+D:\poc-app\poc-app\obj\Debug\poc-app.csprojResolveAssemblyReference.cache

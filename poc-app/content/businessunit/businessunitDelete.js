@@ -20,6 +20,11 @@ export class BusinessUnitDelete
     deleteBusinessUnit(BusinessUnitId)
     {
         alert(BusinessUnitId);
+
+        var businessUnit= this.businessunitServices
+                .deleteBusinessUnit(BusinessUnitId)
+                .then(businessUnit => this.businessUnits = businessUnits);
+        return businessUnit;            
     }
 } 
       
